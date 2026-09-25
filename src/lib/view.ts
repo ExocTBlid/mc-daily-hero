@@ -6,7 +6,6 @@ export type DeckCardRow = {
   qty: number
   name: string
   code: string
-  cost: string
   faction: string
   signature: boolean
   permanent: boolean
@@ -67,7 +66,6 @@ export function presentDeck(catalog: Catalog, deck: SavedDeck): DeckPage {
       qty,
       name: card?.name ?? code,
       code: card?.code ?? code,
-      cost: card?.cost == null ? '' : card.cost < 0 ? 'X' : String(card.cost),
       faction,
       signature: Boolean(hero && card?.set_code === hero.set_code),
       permanent: Boolean(card?.permanent),
@@ -128,4 +126,8 @@ export function labelAspects(aspects: string[]): string {
 
 export function cardUrl(code: string): string {
   return `https://marvelcdb.com/card/${code}`
+}
+
+export function cardImageUrl(code: string): string {
+  return `https://marvelcdb.com/bundles/cards/${code}.png`
 }

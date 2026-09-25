@@ -1,5 +1,5 @@
 ---
-import { cardUrl, type DeckPage } from '../lib/view'
+import { cardImageUrl, cardUrl, type DeckPage } from '../lib/view'
 interface Props {
   page: DeckPage
   previous: string | null
@@ -34,14 +34,13 @@ const href = (date: string) => `${base}d/${date}`
         <h3>{group.label}</h3>
         {group.cards.map((card) => (
           <div class="row">
-            <span class="qty">{card.qty}</span>
+            <span class="qty">{card.qty}x</span>
             <span>
-              <a class="name" href={cardUrl(card.code)} target="_blank" rel="noopener noreferrer">{card.name}</a>
+              <a class="name" href={cardUrl(card.code)} data-image={cardImageUrl(card.code)} target="_blank" rel="noopener noreferrer">{card.name}</a>
               {card.signature && <span class="tag">Hero</span>}
               {card.permanent && <span class="tag">Permanent</span>}
               {card.restricted && <span class="tag">Restricted</span>}
             </span>
-            <span class="cost">{card.cost}</span>
           </div>
         ))}
       </section>
@@ -62,6 +61,11 @@ const href = (date: string) => `${base}d/${date}`
   {next ? <a href={href(next)}>Next day</a> : <span></span>}
 </nav>
 
+<div class="card-preview" hidden>
+  <img alt="" decoding="async" />
+  <p class="card-preview-fallback" hidden>No picture for this card.</p>
+</div>
+
 <script>
   const button = document.querySelector('#copy-deck')
   const text = document.querySelector('#deck-text')
@@ -70,4 +74,83 @@ const href = (date: string) => `${base}d/${date}`
     await navigator.clipboard.writeText(text.textContent)
     button.textContent = 'Copied'
   })
+
+  const preview = document.querySelector('.card-preview')
+  const image = preview?.querySelector('img')
+  const fallback = preview?.querySelector('.card-preview-fallback')
+  if (preview instanceof HTMLElement && image instanceof HTMLImageElement && fallback instanceof HTMLElement) {
+    let showTimer = 0
+    let hideTimer = 0
+    let active = null
+
+    const place = (anchor) => {
+      const rect = anchor.getBoundingClientRect()
+      const margin = 8
+      const gap = 14
+      const width = preview.offsetWidth
+      const height = preview.offsetHeight
+      let left = rect.right + gap
+      if (left + width > window.innerWidth - margin) left = rect.left - gap - width
+      if (left < margin) left = Math.max(margin, window.innerWidth - width - margin)
+      let top = rect.top + rect.height / 2 - height / 2
+      top = Math.min(Math.max(margin, top), Math.max(margin, window.innerHeight - height - margin))
+      preview.style.left = `${left}px`
+      preview.style.top = `${top}px`
+    }
+
+    const show = (anchor) => {
+      const src = anchor.dataset.image
+      if (!src) return
+      active = anchor
+      window.clearTimeout(hideTimer)
+      if (image.getAttribute('src') !== src) {
+        fallback.hidden = true
+        image.hidden = false
+        image.alt = anchor.textContent?.trim() || 'Card'
+        image.src = src
+      }
+      preview.hidden = false
+      place(anchor)
+    }
+
+    const scheduleShow = (anchor) => {
+      window.clearTimeout(hideTimer)
+      window.clearTimeout(showTimer)
+      showTimer = window.setTimeout(() => show(anchor), 90)
+    }
+
+    const scheduleHide = () => {
+      window.clearTimeout(showTimer)
+      hideTimer = window.setTimeout(() => {
+        active = null
+        preview.hidden = true
+      }, 60)
+    }
+
+    for (const row of document.querySelectorAll('.row')) {
+      const anchor = row.querySelector('a.name')
+      if (!(anchor instanceof HTMLAnchorElement)) continue
+      row.addEventListener('mouseenter', () => scheduleShow(anchor))
+      row.addEventListener('mouseleave', scheduleHide)
+      anchor.addEventListener('focus', () => show(anchor))
+      anchor.addEventListener('blur', scheduleHide)
+    }
+
+    image.addEventListener('load', () => {
+      fallback.hidden = true
+      image.hidden = false
+      if (active) place(active)
+    })
+    image.addEventListener('error', () => {
+      image.hidden = true
+      fallback.hidden = false
+      if (active) place(active)
+    })
+    window.addEventListener('scroll', () => {
+      if (active) place(active)
+    }, true)
+    window.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') scheduleHide()
+    })
+  }
 </script>

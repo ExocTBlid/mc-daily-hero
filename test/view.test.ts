@@ -82,4 +82,5 @@ describe('presentDeck', () => {
     expect(page.aspects.map((aspect) => aspect.label)).toEqual(['Pool', 'Basic', 'Hero'])
     expect(page.aspects[0].groups.map((group) => group.type)).toEqual(['ally', 'event', 'resource', 'support', 'upgrade'])
   })
+
 })

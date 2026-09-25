@@ -164,7 +164,7 @@ html[data-notice="hidden"] .site-notice { display: none; }
 
 .row {
   display: grid;
-  grid-template-columns: 1.7rem 1fr auto;
+  grid-template-columns: 2.2rem 1fr;
   gap: 0.15rem 0.45rem;
   align-items: baseline;
   padding: 0;
@@ -173,6 +173,29 @@ html[data-notice="hidden"] .site-notice { display: none; }
 .qty { font-variant-numeric: tabular-nums; font-weight: 700; }
 .name { color: var(--ink); text-decoration: none; font-weight: 600; }
 .name:hover { color: var(--red); }
+
+.card-preview {
+  position: fixed;
+  z-index: 30;
+  width: min(15rem, calc(100vw - 1rem));
+  pointer-events: none;
+  filter: drop-shadow(0 10px 22px rgb(0 0 0 / 0.35));
+}
+.card-preview img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 5 / 7;
+  object-fit: contain;
+  background: #f6f6f6;
+}
+.card-preview-fallback {
+  margin: 0;
+  padding: 0.8rem;
+  background: #fff;
+  border: 1px solid var(--line);
+  font-size: 0.9rem;
+}
 .tag {
   font-size: 0.68rem;
   font-weight: 700;
@@ -181,8 +204,6 @@ html[data-notice="hidden"] .site-notice { display: none; }
   margin-left: 0.35rem;
   color: var(--muted);
 }
-.cost { color: var(--muted); font-variant-numeric: tabular-nums; font-weight: 600; }
-
 .pager {
   display: flex;
   justify-content: space-between;
