@@ -3,6 +3,9 @@ name: Test
 on:
   push:
   pull_request:
+  # Deck of the day and Refresh card data push with the workflow token, which
+  # does not start a push workflow. They dispatch this workflow after a commit.
+  workflow_dispatch:
 
 concurrency:
   group: pages-${{ github.ref }}
@@ -27,7 +30,7 @@ jobs:
 
   release:
     needs: test
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -62,7 +65,7 @@ jobs:
 
   deploy:
     needs: release
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
     runs-on: ubuntu-latest
     permissions:
       pages: write

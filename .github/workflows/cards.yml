@@ -7,6 +7,7 @@ on:
 
 permissions:
   contents: write
+  actions: write
 
 jobs:
   refresh:
@@ -19,14 +20,24 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run sync-cards
-      - run: |
+      - name: Commit the card snapshot
+        id: commit
+        run: |
           git config user.name "daily-hero"
           git config user.email "daily-hero@users.noreply.github.com"
           git add data/player-cards.json
           if git diff --cached --quiet; then
             echo "Card snapshot is unchanged"
+            echo "pushed=false" >> "$GITHUB_OUTPUT"
           else
             # Not a conventional commit, so semantic-release leaves the version unchanged.
             git commit -m "Refresh the player card snapshot"
             git push
+            echo "pushed=true" >> "$GITHUB_OUTPUT"
           fi
+      # A push made with GITHUB_TOKEN does not start the Test workflow.
+      - name: Publish the site
+        if: steps.commit.outputs.pushed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh workflow run test.yml --ref main

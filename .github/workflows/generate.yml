@@ -20,6 +20,7 @@ on:
 
 permissions:
   contents: write
+  actions: write
 
 jobs:
   publish:
@@ -37,14 +38,23 @@ jobs:
           DECK_DATE: ${{ inputs.date }}
           DECK_FORCE: ${{ inputs.force }}
       - name: Commit the deck
+        id: commit
         run: |
           git config user.name "daily-hero"
           git config user.email "daily-hero@users.noreply.github.com"
           git add decks
           if git diff --cached --quiet; then
             echo "Deck file already exists"
+            echo "pushed=false" >> "$GITHUB_OUTPUT"
           else
             # Not a conventional commit, so semantic-release leaves the version unchanged.
             git commit -m "Add the daily deck"
             git push
+            echo "pushed=true" >> "$GITHUB_OUTPUT"
           fi
+      # A push made with GITHUB_TOKEN does not start the Test workflow.
+      - name: Publish the site
+        if: steps.commit.outputs.pushed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh workflow run test.yml --ref main
