@@ -1,5 +1,15 @@
 [
   {
+    "date": "2026-09-25",
+    "title": "Spectrum: Pool Multiform Engine",
+    "hero_name": "Spectrum",
+    "hero_code": "21001a",
+    "aspects": [
+      "pool"
+    ],
+    "source": "generated"
+  },
+  {
     "date": "2026-09-20",
     "title": "Captain America - Tactical Strike Force",
     "hero_name": "Captain America",
