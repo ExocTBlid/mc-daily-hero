@@ -7,6 +7,11 @@ interface Props {
 }
 const { title, description = 'One Marvel Champions hero deck each day.' } = Astro.props
 const base = import.meta.env.BASE_URL
+
+// The sentence at the top of every page. Clear it to remove the notice.
+// A visitor who hides it sees it again when this sentence changes.
+const siteNotice =
+  'This site is experimental. The decks are generated and are simply here for fun and possibly inspiration.'
 ---
 <html lang="en">
   <head>
@@ -15,16 +20,34 @@ const base = import.meta.env.BASE_URL
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="icon" href={`${base}favicon.svg`} type="image/svg+xml" />
+    <meta name="theme-color" content="#111111" />
+    {siteNotice && (
+      <script is:inline define:vars={{ siteNotice }}>
+        try {
+          if (localStorage.getItem('daily-hero-notice') === siteNotice) {
+            document.documentElement.dataset.notice = 'hidden'
+          }
+        } catch {}
+      </script>
+    )}
   </head>
   <body>
-    <div class="wrap">
-      <header class="site">
+    <header class="site">
+      <div class="wrap">
         <a class="mark" href={base}>Daily Hero</a>
         <nav>
           <a href={base}>Today</a>
           <a href={`${base}archive`}>Archive</a>
         </nav>
-      </header>
+      </div>
+    </header>
+    <div class="wrap page">
+      {siteNotice && (
+        <aside class="site-notice" data-text={siteNotice}>
+          <p>{siteNotice}</p>
+          <button type="button">Hide</button>
+        </aside>
+      )}
       <slot />
       <footer class="credit">
         <p>
@@ -35,5 +58,16 @@ const base = import.meta.env.BASE_URL
         </p>
       </footer>
     </div>
+    {siteNotice && (
+      <script is:inline>
+        const notice = document.querySelector('.site-notice')
+        notice?.querySelector('button')?.addEventListener('click', () => {
+          notice.setAttribute('hidden', '')
+          try {
+            localStorage.setItem('daily-hero-notice', notice.dataset.text ?? '')
+          } catch {}
+        })
+      </script>
+    )}
   </body>
 </html>

@@ -26,20 +26,25 @@ const href = (date: string) => `${base}d/${date}`
   </p>
 )}
 
-{page.groups.map((group) => (
-  <section class="group">
-    <h2>{group.label}</h2>
-    {group.cards.map((card) => (
-      <div class="row">
-        <span class="qty">{card.qty}</span>
-        <span>
-          <a class="name" href={cardUrl(card.code)} target="_blank" rel="noopener noreferrer">{card.name}</a>
-          {card.signature && <span class="tag">Hero</span>}
-          {card.permanent && <span class="tag">Permanent</span>}
-          {card.restricted && <span class="tag">Restricted</span>}
-        </span>
-        <span class="cost">{card.cost}</span>
-      </div>
+{page.aspects.map((aspect) => (
+  <section class="aspect" data-faction={aspect.faction}>
+    <h2>{aspect.label}</h2>
+    {aspect.groups.map((group) => (
+      <section class="group">
+        <h3>{group.label}</h3>
+        {group.cards.map((card) => (
+          <div class="row">
+            <span class="qty">{card.qty}</span>
+            <span>
+              <a class="name" href={cardUrl(card.code)} target="_blank" rel="noopener noreferrer">{card.name}</a>
+              {card.signature && <span class="tag">Hero</span>}
+              {card.permanent && <span class="tag">Permanent</span>}
+              {card.restricted && <span class="tag">Restricted</span>}
+            </span>
+            <span class="cost">{card.cost}</span>
+          </div>
+        ))}
+      </section>
     ))}
   </section>
 ))}

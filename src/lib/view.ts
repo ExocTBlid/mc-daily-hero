@@ -1,6 +1,6 @@
 import type { Catalog } from './catalog'
 import { isRestricted } from './text'
-import { TYPE_LABEL, TYPE_ORDER, type SavedDeck } from './types'
+import { ASPECTS, TYPE_LABEL, TYPE_ORDER, type SavedDeck } from './types'
 
 export type DeckCardRow = {
   qty: number
@@ -19,9 +19,15 @@ export type DeckGroup = {
   cards: DeckCardRow[]
 }
 
+export type DeckAspect = {
+  faction: string
+  label: string
+  groups: DeckGroup[]
+}
+
 export type DeckPage = {
   deck: SavedDeck
-  groups: DeckGroup[]
+  aspects: DeckAspect[]
   plain: string
   size: number
   aspectLabel: string
@@ -29,62 +35,85 @@ export type DeckPage = {
   fallbackUrl: string | null
 }
 
+/** Aspects, then the basic shell. The hero kit is always last. Anything else sits just above it. */
+const FACTION_ORDER = [...ASPECTS, 'basic'] as const
+
+function rank(order: readonly string[], value: string): number {
+  const index = order.indexOf(value)
+  return index === -1 ? order.length : index
+}
+
+function factionRank(faction: string): number {
+  if (faction === 'hero') return FACTION_ORDER.length + 1
+  return rank(FACTION_ORDER, faction)
+}
+
+function factionLabel(faction: string): string {
+  if (faction === 'hero') return 'Hero'
+  if (faction === 'basic') return 'Basic'
+  return labelAspects([faction])
+}
+
 export function presentDeck(catalog: Catalog, deck: SavedDeck): DeckPage {
   const hero = catalog.hero(deck.hero_code)
-  const groups = new Map<string, DeckCardRow[]>()
+  const buckets = new Map<string, Map<string, DeckCardRow[]>>()
   let size = 0
 
-  const codes = Object.keys(deck.slots).sort((a, b) => {
-    const left = catalog.resolve(a)
-    const right = catalog.resolve(b)
-    const type = TYPE_ORDER.indexOf((left?.type_code ?? '') as (typeof TYPE_ORDER)[number])
-    const other = TYPE_ORDER.indexOf((right?.type_code ?? '') as (typeof TYPE_ORDER)[number])
-    return type - other || (left?.name ?? a).localeCompare(right?.name ?? b)
-  })
-
-  for (const code of codes) {
-    const qty = deck.slots[code]
+  for (const [code, qty] of Object.entries(deck.slots)) {
     const card = catalog.resolve(code)
+    const faction = card?.faction_code || 'other'
     const type = card?.type_code ?? 'upgrade'
     const row: DeckCardRow = {
       qty,
       name: card?.name ?? code,
       code: card?.code ?? code,
       cost: card?.cost == null ? '' : card.cost < 0 ? 'X' : String(card.cost),
-      faction: card?.faction_code ?? '',
+      faction,
       signature: Boolean(hero && card?.set_code === hero.set_code),
       permanent: Boolean(card?.permanent),
       restricted: card ? isRestricted(card) : false,
     }
-    const list = groups.get(type) ?? []
+    const byType = buckets.get(faction) ?? new Map<string, DeckCardRow[]>()
+    const list = byType.get(type) ?? []
     list.push(row)
-    groups.set(type, list)
+    byType.set(type, list)
+    buckets.set(faction, byType)
     if (!row.permanent) size += qty
   }
 
-  const ordered: DeckGroup[] = []
-  for (const type of TYPE_ORDER) {
-    const cards = groups.get(type)
-    if (!cards?.length) continue
-    cards.sort((a, b) => Number(b.signature) - Number(a.signature) || a.name.localeCompare(b.name))
-    ordered.push({ type, label: TYPE_LABEL[type] ?? type, cards })
-  }
+  const factions = [...buckets.keys()].sort((a, b) => factionRank(a) - factionRank(b) || a.localeCompare(b))
+
+  const aspects: DeckAspect[] = factions.map((faction) => {
+    const byType = buckets.get(faction)!
+    const types = [...byType.keys()].sort(
+      (a, b) => rank(TYPE_ORDER, a) - rank(TYPE_ORDER, b) || a.localeCompare(b),
+    )
+    const groups = types.map((type) => {
+      const cards = byType.get(type)!
+      cards.sort((a, b) => Number(b.signature) - Number(a.signature) || a.name.localeCompare(b.name))
+      return { type, label: TYPE_LABEL[type] ?? type, cards }
+    })
+    return { faction, label: factionLabel(faction), groups }
+  })
 
   const plain = [
-    `${deck.title}`,
+    deck.title,
     `${deck.hero_name} — ${labelAspects(deck.aspects)}`,
     deck.summary,
     '',
-    ...ordered.flatMap((group) => [
-      group.label,
-      ...group.cards.map((card) => `${card.qty}x ${card.name}${card.signature ? ' (hero)' : ''}`),
-      '',
+    ...aspects.flatMap((aspect) => [
+      aspect.label,
+      ...aspect.groups.flatMap((group) => [
+        group.label,
+        ...group.cards.map((card) => `${card.qty}x ${card.name}${card.signature ? ' (hero)' : ''}`),
+        '',
+      ]),
     ]),
   ].join('\n')
 
   return {
     deck,
-    groups: ordered,
+    aspects,
     plain,
     size,
     aspectLabel: labelAspects(deck.aspects),
