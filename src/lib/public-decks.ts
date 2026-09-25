@@ -3,7 +3,7 @@ import { validateDeck } from './validate'
 import { ASPECTS, type DeckSlots } from './types'
 
 const API = 'https://marvelcdb.com/api/public'
-const USER_AGENT = 'mc-ai-deck-builder (daily hero deck; public API, caches responses)'
+const USER_AGENT = 'mc-daily-hero (daily hero deck; public API, caches responses)'
 
 export type PublicDeck = {
   id: number

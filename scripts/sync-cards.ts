@@ -35,7 +35,7 @@ const OUT = path.resolve(process.cwd(), 'data/player-cards.json')
 
 async function latestSha(): Promise<string> {
   const response = await fetch('https://api.github.com/repos/zzorba/marvelsdb-json-data/commits/master', {
-    headers: { accept: 'application/vnd.github+json', 'user-agent': 'mc-ai-deck-builder' },
+    headers: { accept: 'application/vnd.github+json', 'user-agent': 'mc-daily-hero' },
   })
   if (!response.ok) throw new Error(`GitHub returned ${response.status}`)
   const body = (await response.json()) as { sha: string }
