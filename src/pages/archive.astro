@@ -1,10 +1,10 @@
 ---
 import Base from '../layouts/Base.astro'
 import { loadIndex } from '../lib/decks'
+import { sitePath } from '../lib/site'
 import { labelAspects } from '../lib/view'
 
 const index = loadIndex()
-const base = import.meta.env.BASE_URL
 ---
 <Base title="Archive — Daily Hero">
   <h1>Archive</h1>
@@ -16,7 +16,7 @@ const base = import.meta.env.BASE_URL
       <ul class="archive">
         {index.map((entry) => (
           <li data-deck={`${entry.date} ${entry.hero_name} ${entry.title} ${entry.aspects.join(' ')}`.toLowerCase()}>
-            <a href={`${base}d/${entry.date}`}>{entry.date} — {entry.title}</a>
+            <a href={sitePath(`d/${entry.date}`)}>{entry.date} — {entry.title}</a>
             <p class="meta">{entry.hero_name} · {labelAspects(entry.aspects)}</p>
           </li>
         ))}
