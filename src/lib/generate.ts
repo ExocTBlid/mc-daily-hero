@@ -40,7 +40,17 @@ export async function generateDailyDeck(catalog: Catalog, options: GenerateOptio
     const client = new OpenAI({ apiKey: process.env.XAI_API_KEY, baseURL: 'https://api.x.ai/v1' })
     let correction = ''
     for (let attempt = 1; attempt <= ATTEMPTS; attempt++) {
-      const raw = await ask(client, buildPrompt(hero.name, aspects, lists, examples, correction))
+      let raw: string
+      try {
+        raw = await ask(client, buildPrompt(hero.name, aspects, lists, examples, correction))
+      } catch (error) {
+        const message = error instanceof Error ? error.message : String(error)
+        errors = [message]
+        console.error(`Grok request failed: ${message}`)
+        if (isBillingBlock(message)) break
+        correction = message
+        continue
+      }
       const parsed = parseModelDeck(raw)
       if (!parsed) {
         errors = ['Reply was not the JSON object requested']
@@ -86,7 +96,7 @@ export async function generateDailyDeck(catalog: Catalog, options: GenerateOptio
     hero_code: heroCode,
     hero_name: hero.name,
     aspects: fallback.aspects,
-    summary: `Today's list is a published MarvelCDB deck, “${fallback.name}”. A generated list for this hero did not pass the legality check.`,
+    summary: `Today's list is a published MarvelCDB deck, “${fallback.name}”. ${fallbackNote(errors)}`,
     slots: fallback.slots,
     source: 'marvelcdb',
     fallback_decklist_id: fallback.id,
@@ -129,6 +139,17 @@ function buildPrompt(
   ]
     .filter(Boolean)
     .join('\n')
+}
+
+function isBillingBlock(message: string): boolean {
+  return /credits|spending limit/i.test(message)
+}
+
+function fallbackNote(errors: string[]): string {
+  if (errors.some(isBillingBlock) || errors.some((error) => error.startsWith('XAI_API_KEY'))) {
+    return 'A generated list was not available.'
+  }
+  return 'A generated list for this hero did not pass the legality check.'
 }
 
 async function ask(client: OpenAI, prompt: string): Promise<string> {
