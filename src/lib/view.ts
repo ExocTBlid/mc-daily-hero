@@ -1,4 +1,5 @@
 import type { Catalog } from './catalog'
+import { PACK_NAMES } from './packs'
 import { isRestricted } from './text'
 import { ASPECTS, TYPE_LABEL, TYPE_ORDER, type SavedDeck } from './types'
 
@@ -33,6 +34,16 @@ export type DeckPage = {
   heroUrl: string
   fallbackUrl: string | null
 }
+
+/** Section order and headings MarvelCDB writes in its text export. The importer ignores the headings. */
+const IMPORT_SECTIONS: Array<[string, string]> = [
+  ['upgrade', 'Upgrades'],
+  ['event', 'Events'],
+  ['support', 'Supports'],
+  ['resource', 'Resources'],
+  ['ally', 'Allies'],
+  ['player_side_scheme', 'Player Side Scheme'],
+]
 
 /** Aspects, then the basic shell. The hero kit is always last. Anything else sits just above it. */
 const FACTION_ORDER = [...ASPECTS, 'basic'] as const
@@ -94,20 +105,7 @@ export function presentDeck(catalog: Catalog, deck: SavedDeck): DeckPage {
     return { faction, label: factionLabel(faction), groups }
   })
 
-  const plain = [
-    deck.title,
-    `${deck.hero_name} — ${labelAspects(deck.aspects)}`,
-    deck.summary,
-    '',
-    ...aspects.flatMap((aspect) => [
-      aspect.label,
-      ...aspect.groups.flatMap((group) => [
-        group.label,
-        ...group.cards.map((card) => `${card.qty}x ${card.name}${card.signature ? ' (hero)' : ''}`),
-        '',
-      ]),
-    ]),
-  ].join('\n')
+  const plain = marvelcdbImport(catalog, deck, aspects)
 
   return {
     deck,
@@ -118,6 +116,42 @@ export function presentDeck(catalog: Catalog, deck: SavedDeck): DeckPage {
     heroUrl: `https://marvelcdb.com/card/${deck.hero_code}`,
     fallbackUrl: deck.fallback_decklist_id ? `https://marvelcdb.com/decklist/view/${deck.fallback_decklist_id}` : null,
   }
+}
+
+function marvelcdbImport(catalog: Catalog, deck: SavedDeck, aspects: DeckAspect[]): string {
+  const byType = new Map<string, DeckCardRow[]>()
+  for (const aspect of aspects) {
+    for (const group of aspect.groups) {
+      const list = byType.get(group.type) ?? []
+      list.push(...group.cards)
+      byType.set(group.type, list)
+    }
+  }
+  for (const cards of byType.values()) cards.sort((a, b) => a.name.localeCompare(b.name))
+
+  const line = (card: DeckCardRow) => {
+    const packCode = catalog.card(card.code)?.pack_code
+    const pack = packCode ? PACK_NAMES[packCode] : undefined
+    return `${card.qty}x ${card.name}${pack ? ` (${pack})` : ''}`
+  }
+
+  const seen = new Set<string>()
+  const sections: string[] = []
+  for (const [type, label] of IMPORT_SECTIONS) {
+    const cards = byType.get(type)
+    if (!cards?.length) continue
+    seen.add(type)
+    sections.push(label, ...cards.map(line), '')
+  }
+  for (const [type, cards] of byType) {
+    if (seen.has(type) || !cards.length) continue
+    sections.push(TYPE_LABEL[type] ?? type, ...cards.map(line), '')
+  }
+
+  // One line, exactly the hero's name. A second copy is imported as a different
+  // card, such as the leadership ally also named Spectrum.
+  const heroName = catalog.hero(deck.hero_code)?.name ?? deck.hero_name
+  return [heroName, '', ...sections].join('\n').trimEnd() + '\n'
 }
 
 export function labelAspects(aspects: string[]): string {

@@ -66,16 +66,30 @@ describe('presentDeck', () => {
 
       const rows = page.aspects.flatMap((aspect) => aspect.groups.flatMap((group) => group.cards))
       expect(rows).toHaveLength(Object.keys(deck.slots).length)
-
-      const labels = page.aspects.map((aspect) => aspect.label)
-      let cursor = 0
-      for (const label of labels) {
-        const at = page.plain.indexOf(`\n${label}\n`, cursor)
-        expect(at).toBeGreaterThan(cursor - 1)
-        cursor = at + 1
-      }
     })
   }
+
+  it('copies a MarvelCDB import list', () => {
+    const deck = saved('decks/2026-09-25.json')
+    const page = presentDeck(catalog, deck)
+    expect(page.plain.startsWith(`Spectrum\n`)).toBe(true)
+    expect(page.plain).not.toContain(deck.title)
+    expect(page.plain.split('\n').filter((line) => line.trim() === 'Spectrum')).toEqual(['Spectrum'])
+    expect(page.plain).not.toMatch(/^1x Spectrum\b/m)
+    expect(page.plain).not.toContain(deck.summary)
+    expect(page.plain).not.toContain('(hero)')
+    const events = page.plain.indexOf('\nEvents\n')
+    const allies = page.plain.indexOf('\nAllies\n')
+    expect(events).toBeGreaterThan(-1)
+    expect(allies).toBeGreaterThan(events)
+    expect(page.plain).toContain('1x Nick Fury (Core Set)')
+    expect(page.plain).toContain('1x "I Got This" (Deadpool)')
+    const lines = page.plain.split('\n').filter((line) => /^\d+x /.test(line))
+    const copies = lines.reduce((sum, line) => sum + Number(line.match(/^(\d+)x /)?.[1]), 0)
+    const slotted = Object.values(deck.slots).reduce((sum, qty) => sum + qty, 0)
+    expect(lines).toHaveLength(Object.keys(deck.slots).length)
+    expect(copies).toBe(slotted)
+  })
 
   it('puts the hero kit under the aspect and the basic cards', () => {
     const page = presentDeck(catalog, saved('decks/2026-09-25.json'))
