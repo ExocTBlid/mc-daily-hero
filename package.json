@@ -16,18 +16,21 @@
     "generate": "tsx scripts/generate.ts"
   },
   "engines": {
-    "node": ">=22.12.0"
+    "node": ">=24.15.0"
   },
   "dependencies": {
     "astro": "^7.3.5",
-    "openai": "^6.49.0"
+    "openai": "^7.23.0"
   },
   "devDependencies": {
     "@semantic-release/git": "^11.0.1",
     "@types/node": "^26.6.2",
     "semantic-release": "^25.0.9",
     "tsx": "^4.23.15",
-    "typescript": "^5.9.3",
-    "vitest": "^4.1.11"
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.2"
+  },
+  "allowScripts": {
+    "esbuild": true
   }
 }
