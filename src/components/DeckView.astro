@@ -15,14 +15,14 @@ const href = (date: string) => `${base}d/${date}`
 <p class="kicker">{deck.date}</p>
 <h1>{deck.title}</h1>
 <p class="meta">
-  <a href={page.heroUrl}>{deck.hero_name}</a>
+  <a href={page.heroUrl} target="_blank" rel="noopener noreferrer">{deck.hero_name}</a>
   · {page.aspectLabel}
   · {page.size} cards
 </p>
 <p class="summary">{deck.summary}</p>
 {page.fallbackUrl && (
   <p class="meta">
-    Published list: <a href={page.fallbackUrl}>MarvelCDB #{deck.fallback_decklist_id}</a>
+    Published list: <a href={page.fallbackUrl} target="_blank" rel="noopener noreferrer">MarvelCDB #{deck.fallback_decklist_id}</a>
   </p>
 )}
 
@@ -33,7 +33,7 @@ const href = (date: string) => `${base}d/${date}`
       <div class="row">
         <span class="qty">{card.qty}</span>
         <span>
-          <a class="name" href={cardUrl(card.code)}>{card.name}</a>
+          <a class="name" href={cardUrl(card.code)} target="_blank" rel="noopener noreferrer">{card.name}</a>
           {card.signature && <span class="tag">Hero</span>}
           {card.permanent && <span class="tag">Permanent</span>}
           {card.restricted && <span class="tag">Restricted</span>}
