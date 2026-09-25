@@ -1,0 +1,27 @@
+{
+  "name": "mc-ai-deck-builder",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "ASTRO_TELEMETRY_DISABLED=1 astro build",
+    "preview": "astro preview",
+    "test": "vitest run",
+    "sync-cards": "tsx scripts/sync-cards.ts",
+    "generate": "tsx scripts/generate.ts"
+  },
+  "engines": {
+    "node": ">=20.19.1"
+  },
+  "dependencies": {
+    "astro": "^5.18.2",
+    "openai": "^6.49.0"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.2",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.11"
+  }
+}

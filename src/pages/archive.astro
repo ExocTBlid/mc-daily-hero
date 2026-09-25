@@ -1,0 +1,36 @@
+---
+import Base from '../layouts/Base.astro'
+import { loadIndex } from '../lib/decks'
+import { labelAspects } from '../lib/view'
+
+const index = loadIndex()
+const base = import.meta.env.BASE_URL
+---
+<Base title="Archive — Daily Hero">
+  <h1>Archive</h1>
+  {index.length === 0 ? (
+    <p>Nothing filed yet.</p>
+  ) : (
+    <>
+      <input id="filter" type="search" placeholder="Filter by hero, aspect, or title" aria-label="Filter the archive" />
+      <ul class="archive">
+        {index.map((entry) => (
+          <li data-deck={`${entry.date} ${entry.hero_name} ${entry.title} ${entry.aspects.join(' ')}`.toLowerCase()}>
+            <a href={`${base}d/${entry.date}`}>{entry.date} — {entry.title}</a>
+            <p class="meta">{entry.hero_name} · {labelAspects(entry.aspects)}</p>
+          </li>
+        ))}
+      </ul>
+    </>
+  )}
+</Base>
+
+<script>
+  const filter = document.querySelector<HTMLInputElement>('#filter')
+  filter?.addEventListener('input', () => {
+    const needle = filter.value.trim().toLowerCase()
+    document.querySelectorAll<HTMLElement>('[data-deck]').forEach((row) => {
+      row.hidden = needle.length > 0 && !row.dataset.deck?.includes(needle)
+    })
+  })
+</script>

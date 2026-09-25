@@ -1,0 +1,68 @@
+name: Deck of the day
+
+on:
+  workflow_dispatch:
+    inputs:
+      date:
+        description: YYYY-MM-DD in Pacific time. Empty means today.
+        required: false
+        type: string
+      force:
+        description: Replace the deck if that day already exists
+        required: false
+        type: boolean
+        default: false
+  schedule:
+    # Midnight US Pacific is 07:05 UTC during daylight time and 08:05 UTC in winter.
+    # The generator keys off the Pacific date and leaves an existing file alone.
+    - cron: '5 7 * * *'
+    - cron: '5 8 * * *'
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm run generate
+        env:
+          XAI_API_KEY: ${{ secrets.XAI_API_KEY }}
+          DECK_DATE: ${{ inputs.date }}
+          DECK_FORCE: ${{ inputs.force }}
+      - name: Commit the deck
+        run: |
+          git config user.name "daily-hero"
+          git config user.email "daily-hero@users.noreply.github.com"
+          git add decks
+          if git diff --cached --quiet; then
+            echo "Deck file already exists"
+          else
+            git commit -m "Add the daily deck"
+            git push
+          fi
+      - run: npm run build
+        env:
+          ASTRO_TELEMETRY_DISABLED: 1
+          SITE_URL: ${{ vars.SITE_URL }}
+          BASE_PATH: ${{ vars.BASE_PATH }}
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+      - id: deploy
+        uses: actions/deploy-pages@v4

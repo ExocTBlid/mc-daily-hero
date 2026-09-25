@@ -1,0 +1,31 @@
+name: Refresh card data
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 16 * * 1'
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm run sync-cards
+      - run: |
+          git config user.name "daily-hero"
+          git config user.email "daily-hero@users.noreply.github.com"
+          git add data/player-cards.json
+          if git diff --cached --quiet; then
+            echo "Card snapshot is unchanged"
+          else
+            git commit -m "Refresh the player card snapshot"
+            git push
+          fi

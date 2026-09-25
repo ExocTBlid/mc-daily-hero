@@ -1,0 +1,39 @@
+---
+import '../styles/site.css'
+
+interface Props {
+  title: string
+  description?: string
+}
+const { title, description = 'One Marvel Champions hero deck each day.' } = Astro.props
+const base = import.meta.env.BASE_URL
+---
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" href={`${base}favicon.svg`} type="image/svg+xml" />
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="site">
+        <a class="mark" href={base}>Daily Hero</a>
+        <nav>
+          <a href={base}>Today</a>
+          <a href={`${base}archive`}>Archive</a>
+        </nav>
+      </header>
+      <slot />
+      <footer class="credit">
+        <p>
+          Marvel Champions is published by Fantasy Flight Games. Card names link to
+          <a href="https://marvelcdb.com/">MarvelCDB</a>. Card data comes from
+          <a href="https://github.com/zzorba/marvelsdb-json-data">marvelsdb-json-data</a>.
+          Rules reference: <a href="https://marvelcdb.com/rules">MarvelCDB</a>.
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,68 @@
+---
+import { cardUrl, type DeckPage } from '../lib/view'
+interface Props {
+  page: DeckPage
+  previous: string | null
+  next: string | null
+  notice?: string
+}
+const { page, previous, next, notice } = Astro.props
+const { deck } = page
+const base = import.meta.env.BASE_URL
+const href = (date: string) => `${base}d/${date}`
+---
+{notice && <p class="notice">{notice}</p>}
+<p class="kicker">{deck.date}</p>
+<h1>{deck.title}</h1>
+<p class="meta">
+  <a href={page.heroUrl}>{deck.hero_name}</a>
+  · {page.aspectLabel}
+  · {page.size} cards
+</p>
+<p class="summary">{deck.summary}</p>
+{page.fallbackUrl && (
+  <p class="meta">
+    Published list: <a href={page.fallbackUrl}>MarvelCDB #{deck.fallback_decklist_id}</a>
+  </p>
+)}
+
+{page.groups.map((group) => (
+  <section class="group">
+    <h2>{group.label}</h2>
+    {group.cards.map((card) => (
+      <div class="row">
+        <span class="qty">{card.qty}</span>
+        <span>
+          <a class="name" href={cardUrl(card.code)}>{card.name}</a>
+          {card.signature && <span class="tag">Hero</span>}
+          {card.permanent && <span class="tag">Permanent</span>}
+          {card.restricted && <span class="tag">Restricted</span>}
+        </span>
+        <span class="cost">{card.cost}</span>
+      </div>
+    ))}
+  </section>
+))}
+
+<div class="actions">
+  <button type="button" id="copy-deck">Copy list</button>
+</div>
+<details>
+  <summary>Plain text</summary>
+  <pre class="plain" id="deck-text">{page.plain}</pre>
+</details>
+
+<nav class="pager">
+  {previous ? <a href={href(previous)}>Previous day</a> : <span></span>}
+  {next ? <a href={href(next)}>Next day</a> : <span></span>}
+</nav>
+
+<script>
+  const button = document.querySelector('#copy-deck')
+  const text = document.querySelector('#deck-text')
+  button?.addEventListener('click', async () => {
+    if (!text?.textContent) return
+    await navigator.clipboard.writeText(text.textContent)
+    button.textContent = 'Copied'
+  })
+</script>

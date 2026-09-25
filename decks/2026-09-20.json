@@ -1,0 +1,40 @@
+{
+  "date": "2026-09-20",
+  "title": "Captain America - Tactical Strike Force",
+  "hero_code": "03001a",
+  "hero_name": "Captain America",
+  "aspects": [
+    "leadership"
+  ],
+  "summary": "Today's list is a published MarvelCDB deck, “Captain America - Tactical Strike Force”.",
+  "slots": {
+    "21012": 1,
+    "21018": 3,
+    "23016": 2,
+    "40018": 1,
+    "40023": 1,
+    "58022": 1,
+    "59018": 1,
+    "62015": 3,
+    "01067": 1,
+    "01069": 3,
+    "01084": 1,
+    "01088": 1,
+    "01089": 1,
+    "01090": 1,
+    "03002": 1,
+    "03003": 2,
+    "03004": 3,
+    "03005": 2,
+    "03006": 2,
+    "03007": 1,
+    "03008": 1,
+    "03009": 1,
+    "03010": 2,
+    "04013": 1,
+    "08031": 3
+  },
+  "source": "marvelcdb",
+  "fallback_decklist_id": 66816,
+  "card_data_rev": "44b7f2c9b01faa50f5a96cb40a9c0ecbbace7776"
+}

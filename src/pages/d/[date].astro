@@ -1,0 +1,23 @@
+---
+import Base from '../../layouts/Base.astro'
+import DeckView from '../../components/DeckView.astro'
+import { getCatalog } from '../../lib/catalog'
+import { loadDeck, loadIndex } from '../../lib/decks'
+import { presentDeck } from '../../lib/view'
+
+export function getStaticPaths() {
+  return loadIndex().map((entry) => ({ params: { date: entry.date } }))
+}
+
+const { date } = Astro.params
+const deck = date ? loadDeck(date) : null
+if (!deck) throw new Error(`Missing deck ${date}`)
+const page = presentDeck(getCatalog(), deck)
+const dates = loadIndex().map((entry) => entry.date).sort()
+const index = dates.indexOf(deck.date)
+const previous = index > 0 ? dates[index - 1] : null
+const next = index >= 0 && index < dates.length - 1 ? dates[index + 1] : null
+---
+<Base title={`${page.deck.hero_name} — ${page.deck.date}`} description={page.deck.summary}>
+  <DeckView page={page} previous={previous} next={next} />
+</Base>

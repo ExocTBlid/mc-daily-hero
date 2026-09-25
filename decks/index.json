@@ -1,0 +1,12 @@
+[
+  {
+    "date": "2026-09-20",
+    "title": "Captain America - Tactical Strike Force",
+    "hero_name": "Captain America",
+    "hero_code": "03001a",
+    "aspects": [
+      "leadership"
+    ],
+    "source": "marvelcdb"
+  }
+]

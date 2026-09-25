@@ -1,0 +1,153 @@
+:root {
+  color: #1c1915;
+  background: #f3efe4;
+  font-family: "Iowan Old Style", Palatino, Georgia, serif;
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+a { color: #7d1824; }
+a:hover { color: #1c1915; }
+
+.wrap {
+  width: min(40rem, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 1.5rem 0 3rem;
+}
+
+header.site {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  border-bottom: 1px solid #1c1915;
+  padding-bottom: 0.6rem;
+  margin-bottom: 1.5rem;
+}
+
+.mark {
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  color: #1c1915;
+}
+
+nav { display: flex; gap: 1rem; font-family: ui-sans-serif, system-ui, sans-serif; font-size: 0.92rem; }
+nav a { text-decoration: none; }
+
+h1 {
+  font-size: 2rem;
+  line-height: 1.15;
+  margin: 0.2rem 0 0.4rem;
+}
+
+.kicker, .notice, .meta, .credit, .row span, button, input, .plain {
+  font-family: ui-sans-serif, system-ui, sans-serif;
+}
+
+.kicker {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.78rem;
+}
+
+.notice {
+  background: #efe2c0;
+  padding: 0.7rem 0.85rem;
+  margin: 0 0 1rem;
+}
+
+.summary { font-size: 1.15rem; }
+
+.group { margin-top: 1.4rem; }
+.group h2 {
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 0 0 0.35rem;
+  border-bottom: 1px solid #cfc6b4;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 2.4rem 1fr auto;
+  gap: 0.35rem 0.6rem;
+  align-items: baseline;
+  padding: 0.28rem 0;
+}
+
+.qty { font-variant-numeric: tabular-nums; }
+.name { text-decoration: none; }
+.tag {
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-left: 0.35rem;
+  color: #6b6458;
+}
+.cost { color: #6b6458; font-variant-numeric: tabular-nums; }
+
+.pager {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1.6rem;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+}
+
+button, input {
+  font: inherit;
+  font-size: 0.95rem;
+}
+
+button {
+  background: #1c1915;
+  color: #f3efe4;
+  border: 0;
+  padding: 0.45rem 0.75rem;
+  cursor: pointer;
+}
+
+input {
+  width: 100%;
+  padding: 0.5rem 0.6rem;
+  border: 1px solid #1c1915;
+  background: transparent;
+  margin: 0.4rem 0 1rem;
+}
+
+.archive { list-style: none; padding: 0; margin: 0; }
+.archive li { padding: 0.7rem 0; border-bottom: 1px solid #cfc6b4; }
+.archive a { text-decoration: none; color: #1c1915; }
+.archive a:hover { color: #7d1824; }
+.archive .meta { margin: 0.15rem 0 0; color: #6b6458; font-size: 0.9rem; }
+
+.plain {
+  white-space: pre-wrap;
+  background: #fffdf8;
+  padding: 0.8rem;
+  border: 1px solid #cfc6b4;
+  font-size: 0.9rem;
+}
+
+footer {
+  margin-top: 2.5rem;
+  color: #6b6458;
+  font-size: 0.85rem;
+}
+
+.actions { display: flex; gap: 0.6rem; align-items: center; margin-top: 1rem; }
+
+@media (max-width: 36rem) {
+  h1 { font-size: 1.7rem; }
+  .wrap { width: min(40rem, calc(100% - 1.4rem)); }
+}

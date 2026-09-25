@@ -1,0 +1,34 @@
+---
+import Base from '../layouts/Base.astro'
+import DeckView from '../components/DeckView.astro'
+import { getCatalog } from '../lib/catalog'
+import { loadDeck, loadIndex } from '../lib/decks'
+import { pacificDate } from '../lib/rotation'
+import { presentDeck } from '../lib/view'
+
+const index = loadIndex()
+const today = pacificDate()
+const entry = index.find((item) => item.date === today) ?? index[0]
+const deck = entry ? loadDeck(entry.date) : null
+const page = deck ? presentDeck(getCatalog(), deck) : null
+const older = index.filter((item) => item.date < (entry?.date ?? ''))
+const newer = index.filter((item) => item.date > (entry?.date ?? ''))
+const notice = page && page.deck.date !== today
+  ? `No deck for ${today} yet. This is ${page.deck.date}.`
+  : undefined
+---
+<Base title={page ? `${page.deck.hero_name} — ${page.deck.date}` : 'Daily Hero'}>
+  {page ? (
+    <DeckView
+      page={page}
+      previous={older[0]?.date ?? null}
+      next={newer.at(-1)?.date ?? null}
+      notice={notice}
+    />
+  ) : (
+    <>
+      <h1>The first deck has not been dealt.</h1>
+      <p class="summary">A new hero deck is published at midnight US Pacific. Past days stay on the archive.</p>
+    </>
+  )}
+</Base>
