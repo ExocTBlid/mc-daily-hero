@@ -26,6 +26,7 @@ jobs:
           if git diff --cached --quiet; then
             echo "Card snapshot is unchanged"
           else
+            # Not a conventional commit, so semantic-release leaves the version unchanged.
             git commit -m "Refresh the player card snapshot"
             git push
           fi

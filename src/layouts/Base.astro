@@ -1,6 +1,7 @@
 ---
 import '../styles/site.css'
 import { sitePath } from '../lib/site'
+import { version } from '../../package.json'
 
 interface Props {
   title: string
@@ -57,6 +58,7 @@ const siteNotice =
           <a href="https://github.com/zzorba/marvelsdb-json-data">marvelsdb-json-data</a>.
           Rules reference: <a href="https://marvelcdb.com/rules" target="_blank" rel="noopener noreferrer">MarvelCDB</a>.
         </p>
+        <p class="version">v{version}</p>
       </footer>
     </div>
     {siteNotice && (

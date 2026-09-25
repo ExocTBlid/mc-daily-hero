@@ -44,6 +44,7 @@ jobs:
           if git diff --cached --quiet; then
             echo "Deck file already exists"
           else
+            # Not a conventional commit, so semantic-release leaves the version unchanged.
             git commit -m "Add the daily deck"
             git push
           fi

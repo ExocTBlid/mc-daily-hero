@@ -24,13 +24,44 @@ jobs:
           ASTRO_TELEMETRY_DISABLED: 1
           SITE_URL: ${{ vars.SITE_URL }}
           BASE_PATH: ${{ vars.BASE_PATH }}
+
+  release:
+    needs: test
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Release
+        run: |
+          git config user.name "daily-hero"
+          git config user.email "daily-hero@users.noreply.github.com"
+          npx semantic-release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # The release step writes the new version into package.json. Build after it so the footer matches.
+      - name: Build the released site
+        run: npm run build
+        env:
+          ASTRO_TELEMETRY_DISABLED: 1
+          SITE_URL: ${{ vars.SITE_URL }}
+          BASE_PATH: ${{ vars.BASE_PATH }}
       - uses: actions/upload-pages-artifact@v3
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         with:
           path: dist
 
   deploy:
-    needs: test
+    needs: release
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     permissions:
