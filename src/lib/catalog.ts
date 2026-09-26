@@ -15,14 +15,36 @@ export type HeroRules = {
 export class Catalog {
   readonly rev: string
   readonly byCode = new Map<string, Card>()
+  /** One card per hero kit. Later forms of that kit are not separate heroes. */
   readonly heroes: Card[]
+  private readonly identityOf = new Map<string, string>()
 
   constructor(snapshot: CardSnapshot) {
     this.rev = snapshot.rev
     for (const card of snapshot.cards) this.byCode.set(card.code, card)
-    this.heroes = snapshot.cards
-      .filter((card) => card.type_code === 'hero' && !card.hidden && card.set_code && card.name)
-      .sort((a, b) => a.name!.localeCompare(b.name!))
+
+    const bySet = new Map<string, Card[]>()
+    for (const card of snapshot.cards) {
+      if (card.type_code !== 'hero' || card.hidden || !card.set_code || !card.name) continue
+      const group = bySet.get(card.set_code) ?? []
+      group.push(card)
+      bySet.set(card.set_code, group)
+    }
+
+    this.heroes = [...bySet.values()]
+      .map((group) => chooseIdentity(group, this.byCode))
+      .sort((a, b) => a.name!.localeCompare(b.name!) || a.code.localeCompare(b.code))
+
+    for (const [setCode, group] of bySet) {
+      const identity = this.heroes.find((hero) => hero.set_code === setCode)
+      if (!identity) continue
+      for (const card of group) this.identityOf.set(card.code, identity.code)
+    }
+  }
+
+  /** The hero a form belongs to. Ant-Man's giant form and Ironheart's later armors share one hero. */
+  identityCode(code: string): string {
+    return this.identityOf.get(code) ?? code
   }
 
   card(code: string): Card | undefined {
@@ -95,6 +117,20 @@ export class Catalog {
         PLAYER_TYPES.has(card.type_code ?? ''),
     )
   }
+}
+
+/**
+ * The form the deck is built as. A kit with several hero cards still has one
+ * identity: the form that flips back to its alter-ego, and the earliest of
+ * those when every form does (Ironheart starts at Version 1).
+ */
+function chooseIdentity(group: Card[], byCode: Map<string, Card>): Card {
+  const linked = group.filter((card) => {
+    const back = card.back_link ? byCode.get(card.back_link) : undefined
+    return back?.type_code === 'alter_ego'
+  })
+  const candidates = linked.length > 0 ? linked : group
+  return [...candidates].sort((a, b) => a.code.localeCompare(b.code))[0]
 }
 
 let cached: Catalog | null = null

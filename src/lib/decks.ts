@@ -1,5 +1,6 @@
 import { mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs'
 import path from 'node:path'
+import type { Catalog } from './catalog'
 import type { IndexEntry, SavedDeck } from './types'
 
 export const DECKS_DIR = path.resolve(process.cwd(), 'decks')
@@ -38,12 +39,26 @@ export function listDeckDates(): string[] {
   }
 }
 
-export function heroCounts(dates = listDeckDates()): Map<string, number> {
+export function heroCounts(catalog: Catalog, dates = listDeckDates()): Map<string, number> {
   const counts = new Map<string, number>()
   for (const date of dates) {
     const deck = loadDeck(date)
     if (!deck) continue
-    counts.set(deck.hero_code, (counts.get(deck.hero_code) ?? 0) + 1)
+    const code = catalog.identityCode(deck.hero_code)
+    counts.set(code, (counts.get(code) ?? 0) + 1)
+  }
+  return counts
+}
+
+/** How often each aspect has been dealt. A two-aspect day counts for both. */
+export function aspectCounts(dates = listDeckDates()): Map<string, number> {
+  const counts = new Map<string, number>()
+  for (const date of dates) {
+    const deck = loadDeck(date)
+    if (!deck) continue
+    for (const aspect of new Set(deck.aspects)) {
+      counts.set(aspect, (counts.get(aspect) ?? 0) + 1)
+    }
   }
   return counts
 }

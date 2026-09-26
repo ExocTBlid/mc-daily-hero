@@ -1,6 +1,6 @@
 import OpenAI from 'openai'
 import type { Catalog } from './catalog'
-import { heroCounts, loadDeck, writeDeck } from './decks'
+import { aspectCounts, heroCounts, listDeckDates, loadDeck, writeDeck } from './decks'
 import { decklistUrl, findPublicDecks, type PublicDeck } from './public-decks'
 import { pacificDate, pickAspects, pickHero } from './rotation'
 import { formatShortlist, shortlist } from './shortlist'
@@ -21,10 +21,12 @@ export async function generateDailyDeck(catalog: Catalog, options: GenerateOptio
   const existing = loadDeck(date)
   if (existing && !options.force) return existing
 
-  const heroCode = pickHero(catalog, date, heroCounts())
+  // Ignore this date so replacing a deck does not count the list being replaced.
+  const history = listDeckDates().filter((day) => day !== date)
+  const heroCode = pickHero(catalog, date, heroCounts(catalog, history))
   const hero = catalog.hero(heroCode)
   if (!hero?.name) throw new Error(`Hero ${heroCode} has no name`)
-  const aspects = pickAspects(catalog, heroCode, date)
+  const aspects = pickAspects(catalog, heroCode, date, aspectCounts(history))
   const rows = shortlist(catalog, heroCode, aspects)
   const lists = formatShortlist(rows)
   const examples = await findPublicDecks(catalog, heroCode, date, 2, 21).catch(() => [])
