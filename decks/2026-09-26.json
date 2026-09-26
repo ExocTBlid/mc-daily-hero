@@ -1,0 +1,41 @@
+{
+  "date": "2026-09-26",
+  "title": "Gamora Aggression Blade Rush",
+  "hero_code": "18001a",
+  "hero_name": "Gamora",
+  "aspects": [
+    "aggression"
+  ],
+  "summary": "Gamora leans on cheap aggression swings and signature pacing to keep pressure high while allies and flexible events clear schemes. Resource staples plus zero-cost Angela keep the engine fueled so she can chain damage and thwart without stalling.",
+  "slots": {
+    "10015": 3,
+    "15013": 2,
+    "16040": 1,
+    "17020": 1,
+    "18002": 1,
+    "18003": 2,
+    "18004": 2,
+    "18005": 2,
+    "18006": 2,
+    "18007": 2,
+    "18008": 1,
+    "18009": 2,
+    "18010": 1,
+    "18011": 1,
+    "18012": 3,
+    "18015": 2,
+    "18019": 1,
+    "18020": 3,
+    "20016": 1,
+    "28014": 3,
+    "40060": 1,
+    "01052": 3,
+    "01053": 2,
+    "01088": 1,
+    "01089": 1,
+    "01090": 1
+  },
+  "source": "generated",
+  "fallback_decklist_id": null,
+  "card_data_rev": "44b7f2c9b01faa50f5a96cb40a9c0ecbbace7776"
+}

@@ -1,5 +1,15 @@
 [
   {
+    "date": "2026-09-26",
+    "title": "Gamora Aggression Blade Rush",
+    "hero_name": "Gamora",
+    "hero_code": "18001a",
+    "aspects": [
+      "aggression"
+    ],
+    "source": "generated"
+  },
+  {
     "date": "2026-09-25",
     "title": "Spectrum: Pool Multiform Engine",
     "hero_name": "Spectrum",
