@@ -15,7 +15,7 @@ const href = (date: string) => sitePath(`d/${date}`)
 <p class="kicker">{deck.date}</p>
 <h1>{deck.title}</h1>
 <p class="meta">
-  <a href={page.heroUrl} target="_blank" rel="noopener noreferrer">{deck.hero_name}</a>
+  <a class="hero-link" href={page.heroUrl} data-image={cardImageUrl(deck.hero_code)} target="_blank" rel="noopener noreferrer">{deck.hero_name}</a>
   · {page.aspectLabel}
   · {page.size} cards
 </p>
@@ -127,14 +127,20 @@ const href = (date: string) => sitePath(`d/${date}`)
       }, 60)
     }
 
-    for (const row of document.querySelectorAll('.row')) {
-      const anchor = row.querySelector('a.name')
-      if (!(anchor instanceof HTMLAnchorElement)) continue
-      row.addEventListener('mouseenter', () => scheduleShow(anchor))
-      row.addEventListener('mouseleave', scheduleHide)
+    const watch = (anchor, hoverTarget) => {
+      hoverTarget.addEventListener('mouseenter', () => scheduleShow(anchor))
+      hoverTarget.addEventListener('mouseleave', scheduleHide)
       anchor.addEventListener('focus', () => show(anchor))
       anchor.addEventListener('blur', scheduleHide)
     }
+
+    for (const row of document.querySelectorAll('.row')) {
+      const anchor = row.querySelector('a.name')
+      if (anchor instanceof HTMLAnchorElement) watch(anchor, row)
+    }
+
+    const heroLink = document.querySelector('a.hero-link')
+    if (heroLink instanceof HTMLAnchorElement) watch(heroLink, heroLink)
 
     image.addEventListener('load', () => {
       fallback.hidden = true
