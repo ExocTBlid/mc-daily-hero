@@ -1,5 +1,15 @@
 [
   {
+    "date": "2026-09-27",
+    "title": "Olympian Justice",
+    "hero_name": "Hercules",
+    "hero_code": "59001a",
+    "aspects": [
+      "justice"
+    ],
+    "source": "generated"
+  },
+  {
     "date": "2026-09-26",
     "title": "Gamora Aggression Blade Rush",
     "hero_name": "Gamora",
