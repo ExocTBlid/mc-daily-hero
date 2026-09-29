@@ -1,0 +1,38 @@
+{
+  "date": "2026-09-29",
+  "title": "Captain Marvel Protection - Binary Guard",
+  "hero_code": "01010a",
+  "hero_name": "Captain Marvel",
+  "aspects": [
+    "protection"
+  ],
+  "summary": "This Protection build keeps Carol safe behind Armored Vest and Get Behind Me while Counter-Punch and Haymaker turn every block into meaningful damage alongside Photonic Blast. Crisis Interdiction, Bait and Switch, and True Grit form a reliable thwart engine that clears side schemes quickly. Helicarrier, Nick Fury, and flexible protection resources keep the expensive hero kit online so Energy Channel can fuel both plans.",
+  "slots": {
+    "15030": 3,
+    "18031": 2,
+    "01011": 1,
+    "01012": 3,
+    "01013": 3,
+    "01014": 2,
+    "01015": 1,
+    "01016": 1,
+    "01017": 2,
+    "01018": 2,
+    "01075": 1,
+    "01076": 1,
+    "01083": 1,
+    "01084": 1,
+    "01077": 3,
+    "01078": 2,
+    "01087": 2,
+    "01085": 2,
+    "01081": 3,
+    "01092": 2,
+    "01091": 1,
+    "01079": 2,
+    "01088": 1
+  },
+  "source": "generated",
+  "fallback_decklist_id": null,
+  "card_data_rev": "44b7f2c9b01faa50f5a96cb40a9c0ecbbace7776"
+}

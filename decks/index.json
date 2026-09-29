@@ -1,5 +1,15 @@
 [
   {
+    "date": "2026-09-29",
+    "title": "Captain Marvel Protection - Binary Guard",
+    "hero_name": "Captain Marvel",
+    "hero_code": "01010a",
+    "aspects": [
+      "protection"
+    ],
+    "source": "generated"
+  },
+  {
     "date": "2026-09-28",
     "title": "Phoenix Psychic Onslaught",
     "hero_name": "Phoenix",
