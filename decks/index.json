@@ -1,5 +1,15 @@
 [
   {
+    "date": "2026-09-30",
+    "title": "Knowhere Docket",
+    "hero_name": "Star-Lord",
+    "hero_code": "17001a",
+    "aspects": [
+      "justice"
+    ],
+    "source": "generated"
+  },
+  {
     "date": "2026-09-29",
     "title": "Captain Marvel Protection - Binary Guard",
     "hero_name": "Captain Marvel",
