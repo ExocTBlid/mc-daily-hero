@@ -1,5 +1,15 @@
 [
   {
+    "date": "2026-10-01",
+    "title": "Spider-Man Leadership Strike Team",
+    "hero_name": "Spider-Man",
+    "hero_code": "01001a",
+    "aspects": [
+      "leadership"
+    ],
+    "source": "generated"
+  },
+  {
     "date": "2026-09-30",
     "title": "Knowhere Docket",
     "hero_name": "Star-Lord",
