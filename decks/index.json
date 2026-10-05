@@ -1,5 +1,15 @@
 [
   {
+    "date": "2026-10-02",
+    "title": "Venom Aggression Lock and Load",
+    "hero_name": "Venom",
+    "hero_code": "20001a",
+    "aspects": [
+      "aggression"
+    ],
+    "source": "generated"
+  },
+  {
     "date": "2026-10-01",
     "title": "Spider-Man Leadership Strike Team",
     "hero_name": "Spider-Man",
