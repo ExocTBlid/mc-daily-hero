@@ -1,5 +1,15 @@
 [
   {
+    "date": "2026-10-05",
+    "title": "Big Hands in the Deep End",
+    "hero_name": "Ms. Marvel",
+    "hero_code": "05001a",
+    "aspects": [
+      "pool"
+    ],
+    "source": "generated"
+  },
+  {
     "date": "2026-10-04",
     "title": "Ghost-Spider Multiversal Guard",
     "hero_name": "Ghost-Spider",
