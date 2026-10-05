@@ -1,5 +1,45 @@
 [
   {
+    "date": "2026-10-01",
+    "title": "Spider-Man Leadership Strike Team",
+    "hero_name": "Spider-Man",
+    "hero_code": "01001a",
+    "aspects": [
+      "leadership"
+    ],
+    "source": "generated"
+  },
+  {
+    "date": "2026-09-30",
+    "title": "Knowhere Docket",
+    "hero_name": "Star-Lord",
+    "hero_code": "17001a",
+    "aspects": [
+      "justice"
+    ],
+    "source": "generated"
+  },
+  {
+    "date": "2026-09-29",
+    "title": "Captain Marvel Protection - Binary Guard",
+    "hero_name": "Captain Marvel",
+    "hero_code": "01010a",
+    "aspects": [
+      "protection"
+    ],
+    "source": "generated"
+  },
+  {
+    "date": "2026-09-28",
+    "title": "Phoenix Psychic Onslaught",
+    "hero_name": "Phoenix",
+    "hero_code": "34001a",
+    "aspects": [
+      "aggression"
+    ],
+    "source": "generated"
+  },
+  {
     "date": "2026-09-27",
     "title": "Olympian Justice",
     "hero_name": "Hercules",
