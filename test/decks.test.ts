@@ -72,6 +72,26 @@ describe('rejected decks', () => {
   })
 })
 
+describe('restricted allowance', () => {
+  const venom = fixtures.find((fixture) => fixture.hero_code === '20001a')
+  if (!venom) throw new Error('missing Venom fixture')
+
+  it('lets Venom run more than two restricted cards', () => {
+    // Venom's own kit forces three restricted cards (Multi-Gun + two Venom's
+    // Pistols), which a flat two-card cap would reject outright.
+    expect(validateDeck(catalog, venom)).toEqual([])
+  })
+
+  it('still rejects going past the raised cap', () => {
+    // Swap a basic for a second Sonic Rifle to push restricted cards over
+    // Venom's allowance of four (base two, +1 identity, +1 Side Holster).
+    const slots = { ...venom.slots, '20015': 2 }
+    delete slots['01093']
+    const errors = validateDeck(catalog, { ...venom, slots })
+    expect(errors.some((error) => error.includes('restricted'))).toBe(true)
+  })
+})
+
 describe('the day', () => {
   it('rolls over at midnight Pacific', () => {
     expect(pacificDate(new Date('2026-01-15T07:30:00Z'))).toBe('2026-01-14')

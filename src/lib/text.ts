@@ -33,6 +33,33 @@ export function isRestricted(card: Card): boolean {
   return /\bRestricted\./.test(text)
 }
 
+/**
+ * Extra restricted cards an identity may control beyond the base two. Venom
+ * and Flash Thompson each print "control 1 additional upgrade that has the
+ * restricted keyword", and the deck is built from only one of those forms,
+ * so the bonus is read from whichever card carries the sentence rather than
+ * summed across both. Returns 0 when neither form grants a bonus.
+ */
+export function restrictedBonus(
+  hero: Card,
+  alterEgo: Card | undefined,
+  deckCards: { card: Card; qty: number }[] = [],
+): number {
+  // The identity bonus is read from whichever form carries the sentence, not
+  // summed across both, because only one form is in play when the deck is built.
+  const identity = Math.max(restrictedUpgradeBonus(hero), restrictedUpgradeBonus(alterEgo))
+  // Cards such as Side Holster grant one more restricted slot per copy in the deck.
+  const fromCards = deckCards.reduce((sum, { card, qty }) => sum + restrictedUpgradeBonus(card) * qty, 0)
+  return identity + fromCards
+}
+
+function restrictedUpgradeBonus(card: Card | undefined): number {
+  const match = (card?.text ?? '').match(
+    /control (\d+) additional (?:\[\[weapon\]\]\s+)?upgrade(?:s)? that (?:has|have) the restricted keyword/i,
+  )
+  return match ? Number(match[1]) : 0
+}
+
 function traitList(match: string): string[] {
   return [...match.matchAll(/\[\[([^\]]+)\]\]/g)].map((part) => part[1])
 }

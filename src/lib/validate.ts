@@ -1,5 +1,5 @@
 import type { Catalog } from './catalog'
-import { deckbuildingBlock, isRestricted } from './text'
+import { deckbuildingBlock, isRestricted, restrictedBonus } from './text'
 import { hasTrait } from './text'
 import { ASPECTS, PLAYER_TYPES, type Aspect, type Card, type DeckOption, type DeckSlots } from './types'
 
@@ -162,7 +162,8 @@ export function validateDeck(catalog: Catalog, draft: DeckDraft): string[] {
   }
 
   const restricted = entries.reduce((sum, entry) => sum + (isRestricted(entry.card) ? entry.qty : 0), 0)
-  if (restricted > MAX_RESTRICTED) errors.push(`A deck can include ${MAX_RESTRICTED} restricted cards (has ${restricted})`)
+  const restrictedMax = MAX_RESTRICTED + restrictedBonus(hero, alterEgo, entries)
+  if (restricted > restrictedMax) errors.push(`A deck can include ${restrictedMax} restricted cards (has ${restricted})`)
 
   const size = entries.reduce((sum, entry) => sum + (entry.card.permanent ? 0 : entry.qty), 0)
   if (size < MIN_DECK) errors.push(`Deck has ${size} cards; the minimum is ${MIN_DECK}`)
