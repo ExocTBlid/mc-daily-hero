@@ -1,5 +1,16 @@
 [
   {
+    "date": "2026-10-06",
+    "title": "Web of Command (aggression / leadership)",
+    "hero_name": "Spider-Woman",
+    "hero_code": "04031a",
+    "aspects": [
+      "aggression",
+      "leadership"
+    ],
+    "source": "generated"
+  },
+  {
     "date": "2026-10-05",
     "title": "Big Hands in the Deep End",
     "hero_name": "Ms. Marvel",
