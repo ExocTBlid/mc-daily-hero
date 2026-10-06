@@ -1,5 +1,56 @@
 [
   {
+    "date": "2026-10-06",
+    "title": "Web of Command (aggression / leadership)",
+    "hero_name": "Spider-Woman",
+    "hero_code": "04031a",
+    "aspects": [
+      "aggression",
+      "leadership"
+    ],
+    "source": "generated"
+  },
+  {
+    "date": "2026-10-05",
+    "title": "Big Hands in the Deep End",
+    "hero_name": "Ms. Marvel",
+    "hero_code": "05001a",
+    "aspects": [
+      "pool"
+    ],
+    "source": "generated"
+  },
+  {
+    "date": "2026-10-04",
+    "title": "Ghost-Spider Multiversal Guard",
+    "hero_name": "Ghost-Spider",
+    "hero_code": "27001a",
+    "aspects": [
+      "protection"
+    ],
+    "source": "generated"
+  },
+  {
+    "date": "2026-10-03",
+    "title": "She-Hulk: Justice is Served",
+    "hero_name": "She-Hulk",
+    "hero_code": "01019a",
+    "aspects": [
+      "justice"
+    ],
+    "source": "generated"
+  },
+  {
+    "date": "2026-10-02",
+    "title": "Venom Aggression Lock and Load",
+    "hero_name": "Venom",
+    "hero_code": "20001a",
+    "aspects": [
+      "aggression"
+    ],
+    "source": "generated"
+  },
+  {
     "date": "2026-10-01",
     "title": "Spider-Man Leadership Strike Team",
     "hero_name": "Spider-Man",

@@ -1,0 +1,43 @@
+{
+  "date": "2026-10-02",
+  "title": "Venom Aggression Lock and Load",
+  "hero_code": "20001a",
+  "hero_name": "Venom",
+  "aspects": [
+    "aggression"
+  ],
+  "summary": "Weapon-focused aggression Venom leans on Fusillade, Relentless Assault, and Clobber for steady damage while Side Holster and Multi-Gun keep the guns online. Chase Them Down, Looking for Trouble, and Smash the Problem handle schemes, backed by Helicarrier, mansion, and double resource packages for consistent plays.",
+  "slots": {
+    "16043": 2,
+    "18012": 2,
+    "20002": 2,
+    "20003": 2,
+    "20004": 1,
+    "20005": 3,
+    "20006": 2,
+    "20007": 1,
+    "20008": 1,
+    "20009": 1,
+    "20010": 2,
+    "20021": 3,
+    "20026": 3,
+    "20029": 1,
+    "21046": 1,
+    "25019": 2,
+    "32047": 2,
+    "01051": 1,
+    "01052": 3,
+    "01053": 3,
+    "01055": 2,
+    "01057": 1,
+    "01086": 2,
+    "01088": 1,
+    "01089": 1,
+    "01090": 1,
+    "01091": 1,
+    "01092": 1
+  },
+  "source": "generated",
+  "fallback_decklist_id": null,
+  "card_data_rev": "44b7f2c9b01faa50f5a96cb40a9c0ecbbace7776"
+}
