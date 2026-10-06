@@ -13,10 +13,7 @@ on:
         type: boolean
         default: false
   schedule:
-    # Midnight US Pacific is 07:05 UTC during daylight time and 08:05 UTC in winter.
-    # The generator keys off the Pacific date and leaves an existing file alone.
-    - cron: '5 7 * * *'
-    - cron: '5 8 * * *'
+    - cron: '5 1 * * *'
 
 permissions:
   contents: write
