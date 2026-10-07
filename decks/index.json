@@ -1,5 +1,15 @@
 [
   {
+    "date": "2026-10-07",
+    "title": "Shield of Wakanda",
+    "hero_name": "Black Panther",
+    "hero_code": "01040a",
+    "aspects": [
+      "protection"
+    ],
+    "source": "generated"
+  },
+  {
     "date": "2026-10-06",
     "title": "Web of Command (aggression / leadership)",
     "hero_name": "Spider-Woman",
