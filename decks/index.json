@@ -1,5 +1,15 @@
 [
   {
+    "date": "2026-10-08",
+    "title": "Drax Justice Knives",
+    "hero_name": "Drax",
+    "hero_code": "19001a",
+    "aspects": [
+      "justice"
+    ],
+    "source": "generated"
+  },
+  {
     "date": "2026-10-07",
     "title": "Shield of Wakanda",
     "hero_name": "Black Panther",
