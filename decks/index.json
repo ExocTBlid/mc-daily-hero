@@ -1,5 +1,15 @@
 [
   {
+    "date": "2026-10-10",
+    "title": "Kitty's Command",
+    "hero_name": "Shadowcat",
+    "hero_code": "32030a",
+    "aspects": [
+      "leadership"
+    ],
+    "source": "generated"
+  },
+  {
     "date": "2026-10-09",
     "title": "Groot Pool Roots",
     "hero_name": "Groot",
