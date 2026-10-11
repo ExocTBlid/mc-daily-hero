@@ -1,5 +1,15 @@
 [
   {
+    "date": "2026-10-11",
+    "title": "Savage Claws of Tigra",
+    "hero_name": "Tigra",
+    "hero_code": "56001a",
+    "aspects": [
+      "aggression"
+    ],
+    "source": "generated"
+  },
+  {
     "date": "2026-10-10",
     "title": "Kitty's Command",
     "hero_name": "Shadowcat",
