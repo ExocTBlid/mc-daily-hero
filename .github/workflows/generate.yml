@@ -13,7 +13,10 @@ on:
         type: boolean
         default: false
   schedule:
-    - cron: '5 1 * * *'
+    # 1:05 AM Pacific. 08:05 UTC is PDT, 09:05 UTC is PST. The later run
+    # finds the day's file and leaves it.
+    - cron: '5 8 * * *'
+    - cron: '5 9 * * *'
 
 permissions:
   contents: write
