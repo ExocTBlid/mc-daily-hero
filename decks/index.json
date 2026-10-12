@@ -1,5 +1,15 @@
 [
   {
+    "date": "2026-10-12",
+    "title": "Speed and Steel",
+    "hero_name": "Quicksilver",
+    "hero_code": "14001a",
+    "aspects": [
+      "protection"
+    ],
+    "source": "generated"
+  },
+  {
     "date": "2026-10-11",
     "title": "Savage Claws of Tigra",
     "hero_name": "Tigra",
