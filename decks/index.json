@@ -1,5 +1,15 @@
 [
   {
+    "date": "2026-10-13",
+    "title": "Nick Fury: Justice Protocol",
+    "hero_name": "Nick Fury",
+    "hero_code": "50034a",
+    "aspects": [
+      "justice"
+    ],
+    "source": "generated"
+  },
+  {
     "date": "2026-10-12",
     "title": "Speed and Steel",
     "hero_name": "Quicksilver",
