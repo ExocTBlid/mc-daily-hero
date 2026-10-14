@@ -1,5 +1,15 @@
 [
   {
+    "date": "2026-10-14",
+    "title": "Maria, Maria",
+    "hero_name": "Maria Hill",
+    "hero_code": "50001a",
+    "aspects": [
+      "leadership"
+    ],
+    "source": "marvelcdb"
+  },
+  {
     "date": "2026-10-13",
     "title": "Nick Fury: Justice Protocol",
     "hero_name": "Nick Fury",
