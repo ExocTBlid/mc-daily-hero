@@ -1,10 +1,10 @@
 import OpenAI from 'openai'
-import type { Catalog } from './catalog'
+import type { Catalog, HeroRules } from './catalog'
 import { aspectCounts, heroCounts, listDeckDates, loadDeck, writeDeck } from './decks'
 import { decklistUrl, findPublicDecks, type PublicDeck } from './public-decks'
 import { pacificDate, pickAspects, pickHero } from './rotation'
 import { formatShortlist, shortlist } from './shortlist'
-import { validateDeck } from './validate'
+import { preferredSizeError, validateDeck } from './validate'
 import type { DeckSlots, SavedDeck } from './types'
 
 const MODEL = process.env.DECK_MODEL || 'grok-4.5'
@@ -44,7 +44,7 @@ export async function generateDailyDeck(catalog: Catalog, options: GenerateOptio
     for (let attempt = 1; attempt <= ATTEMPTS; attempt++) {
       let raw: string
       try {
-        raw = await ask(client, buildPrompt(hero.name, aspects, lists, examples, correction))
+        raw = await ask(client, buildPrompt(hero.name, aspects, lists, examples, catalog.rules(hero), correction))
       } catch (error) {
         const message = error instanceof Error ? error.message : String(error)
         errors = [message]
@@ -62,7 +62,10 @@ export async function generateDailyDeck(catalog: Catalog, options: GenerateOptio
       title = parsed.title
       summary = parsed.summary
       slots = parsed.slots
-      errors = validateDeck(catalog, { hero_code: heroCode, aspects, slots })
+      const draft = { hero_code: heroCode, aspects, slots }
+      errors = validateDeck(catalog, draft)
+      const tight = preferredSizeError(catalog, draft)
+      if (tight) errors.push(tight)
       if (errors.length === 0) break
       correction = errors.join('\n')
       slots = null
@@ -113,6 +116,7 @@ function buildPrompt(
   aspects: string[],
   lists: { required: string; pool: string },
   examples: PublicDeck[],
+  rules: HeroRules,
   correction: string,
 ): string {
   const exampleText = examples
@@ -127,7 +131,7 @@ function buildPrompt(
   return [
     `Build one Marvel Champions player deck for ${heroName}.`,
     `Aspects: ${aspects.join(', ')}.`,
-    `The deck must contain every required card at the exact quantity shown. Permanents are required and do not count toward the 40–50 card size. Every other card must come from the pool. Stay at or under each card's max.`,
+    `The deck must contain every required card at the exact quantity shown. ${sizeGuidance(rules)} Every other card must come from the pool. Stay at or under each card's max.`,
     `Give the deck a thwart plan, a damage plan, and some economy. The summary is your own two or three sentences. Do not quote card text.`,
     `Reply with JSON only: {"title":"...","summary":"...","slots":{"code":1}}`,
     ``,
@@ -136,11 +140,27 @@ function buildPrompt(
     ``,
     `Card pool (code | faction type | cost | max | name | traits):`,
     lists.pool,
-    exampleText ? `\nRecent legal lists for this hero, as shape examples only:\n${exampleText}` : '',
-    correction ? `\nThe previous list was illegal. Fix every line:\n${correction}` : '',
+    exampleText ? `\nRecent legal lists for this hero, as shape examples only. Do not copy their size:\n${exampleText}` : '',
+    correction ? `\nThe previous list was rejected. Fix every line:\n${correction}` : '',
   ]
     .filter(Boolean)
     .join('\n')
+}
+
+function sizeGuidance(rules: HeroRules): string {
+  const locks: string[] = []
+  if (rules.aspects === 2) locks.push('two aspect counts that must match')
+  if (rules.aspects === 4) locks.push('four aspect counts that must match')
+  if (rules.copyLimit != null) locks.push(`a copy limit of ${rules.copyLimit} on every card outside the hero kit`)
+  for (const option of rules.options) {
+    if (!option.use_deck_limit || option.name_limit == null) continue
+    const kind = [option.trait?.join(' '), option.type?.join(' ')].filter(Boolean).join(' ')
+    locks.push(`up to ${option.name_limit} off-aspect ${kind || 'cards'} that must be taken at their deck limit`)
+  }
+  const target =
+    'Permanents are required and do not count toward deck size. Build 40 cards. 50 is the game maximum, not a target.'
+  if (locks.length === 0) return `${target} This hero can be built at 40, so do not go over.`
+  return `${target} Go over 40 only when these printed rules cannot be met at 40: ${locks.join('; ')}. Stay as close to 40 as they allow.`
 }
 
 function isBillingBlock(message: string): boolean {

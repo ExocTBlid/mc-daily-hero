@@ -3,8 +3,8 @@ import path from 'node:path'
 import { describe, expect, it } from 'vitest'
 import { loadCatalog } from '../src/lib/catalog'
 import { pacificDate, pickAspects, pickHero } from '../src/lib/rotation'
-import { ASPECTS, CORE_ASPECTS, type DeckSlots } from '../src/lib/types'
-import { validateDeck } from '../src/lib/validate'
+import { ASPECTS, CORE_ASPECTS, PLAYER_TYPES, type DeckSlots } from '../src/lib/types'
+import { preferredSizeError, validateDeck } from '../src/lib/validate'
 
 const catalog = loadCatalog()
 
@@ -198,6 +198,79 @@ describe('hero identities', () => {
       used.set(hero, (used.get(hero) ?? 0) + 1)
     }
     expect(new Set(picked).size).toBe(catalog.heroes.length - 2)
+  })
+})
+
+describe('tight decks', () => {
+  function kit(heroCode: string): DeckSlots {
+    const hero = catalog.hero(heroCode)!
+    const slots: DeckSlots = {}
+    for (const card of catalog.signatureCards(hero)) slots[card.code] = card.quantity ?? 1
+    return slots
+  }
+
+  function fill(faction: string, copies: number, slots: DeckSlots, single: boolean) {
+    let left = copies
+    for (const card of catalog.byCode.values()) {
+      if (left <= 0) break
+      if (card.faction_code !== faction || card.hidden || card.duplicate_of || card.permanent || card.set_code) continue
+      if (!card.name || !card.type_code || !PLAYER_TYPES.has(card.type_code)) continue
+      const take = single ? 1 : Math.min(left, card.deck_limit ?? (card.is_unique ? 1 : 3))
+      slots[card.code] = take
+      left -= take
+    }
+    expect(left).toBe(0)
+  }
+
+  it('accepts a 40-card list', () => {
+    const cap = fixtures.find((fixture) => fixture.id === 66816)!
+    expect(preferredSizeError(catalog, cap)).toBeNull()
+  })
+
+  it('asks a normal hero to cut to 40', () => {
+    const brooklyn = fixtures.find((fixture) => fixture.id === 66745)!
+    expect(preferredSizeError(catalog, brooklyn)).toBe(
+      'Deck has 42 cards. Build 40. This list can drop cards without breaking a printed rule.',
+    )
+    expect(validateDeck(catalog, brooklyn)).toEqual([])
+  })
+
+  it('asks Adam Warlock to drop a spare basic', () => {
+    const puppet = fixtures.find((fixture) => fixture.id === 36680)!
+    expect(preferredSizeError(catalog, puppet)).toBe(
+      'Deck has 41 cards. Build 40. This list can drop cards without breaking a printed rule.',
+    )
+    expect(validateDeck(catalog, puppet)).toEqual([])
+  })
+
+  it('keeps Spider-Woman at 41 when equal aspects cannot shrink to 40', () => {
+    const slots = kit('04031a')
+    fill('aggression', 13, slots, false)
+    fill('justice', 13, slots, false)
+    expect(preferredSizeError(catalog, { hero_code: '04031a', aspects: ['aggression', 'justice'], slots })).toBeNull()
+  })
+
+  it('cuts a padded Spider-Woman list to that floor', () => {
+    const slots = kit('04031a')
+    fill('aggression', 15, slots, false)
+    fill('justice', 15, slots, false)
+    expect(preferredSizeError(catalog, { hero_code: '04031a', aspects: ['aggression', 'justice'], slots })).toBe(
+      'Deck has 45 cards. Cut to 41, the closest this list can come to 40 without breaking a printed rule.',
+    )
+  })
+
+  it('keeps an all-aspect Adam Warlock list at the equal-count floor', () => {
+    const slots = kit('21031a')
+    for (const aspect of CORE_ASPECTS) fill(aspect, 7, slots, true)
+    expect(preferredSizeError(catalog, { hero_code: '21031a', aspects: [...CORE_ASPECTS], slots })).toBeNull()
+  })
+
+  it('cuts a padded Adam Warlock list back to that floor', () => {
+    const slots = kit('21031a')
+    for (const aspect of CORE_ASPECTS) fill(aspect, 8, slots, true)
+    expect(preferredSizeError(catalog, { hero_code: '21031a', aspects: [...CORE_ASPECTS], slots })).toBe(
+      'Deck has 47 cards. Cut to 43, the closest this list can come to 40 without breaking a printed rule.',
+    )
   })
 })
 
