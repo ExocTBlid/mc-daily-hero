@@ -1,0 +1,42 @@
+{
+  "date": "2026-10-15",
+  "title": "Avengers Leader (Core)",
+  "hero_code": "01029a",
+  "hero_name": "Iron Man",
+  "aspects": [
+    "leadership"
+  ],
+  "summary": "Today's list is a published MarvelCDB deck, “Avengers Leader (Core)”. A generated list for this hero did not pass the legality check.",
+  "slots": {
+    "01030": 1,
+    "01031": 3,
+    "01032": 2,
+    "01033": 1,
+    "01034": 1,
+    "01035": 1,
+    "01036": 1,
+    "01037": 1,
+    "01038": 2,
+    "01039": 2,
+    "01066": 1,
+    "01067": 1,
+    "01068": 1,
+    "01069": 2,
+    "01070": 3,
+    "01071": 3,
+    "01072": 2,
+    "01073": 1,
+    "01083": 1,
+    "01084": 1,
+    "01086": 2,
+    "01088": 1,
+    "01089": 1,
+    "01090": 1,
+    "01091": 1,
+    "01092": 1,
+    "01093": 2
+  },
+  "source": "marvelcdb",
+  "fallback_decklist_id": 68280,
+  "card_data_rev": "44b7f2c9b01faa50f5a96cb40a9c0ecbbace7776"
+}

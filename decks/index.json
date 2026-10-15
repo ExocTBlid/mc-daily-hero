@@ -1,5 +1,15 @@
 [
   {
+    "date": "2026-10-15",
+    "title": "Avengers Leader (Core)",
+    "hero_name": "Iron Man",
+    "hero_code": "01029a",
+    "aspects": [
+      "leadership"
+    ],
+    "source": "marvelcdb"
+  },
+  {
     "date": "2026-10-14",
     "title": "Maria, Maria",
     "hero_name": "Maria Hill",
