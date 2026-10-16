@@ -1,5 +1,15 @@
 [
   {
+    "date": "2026-10-16",
+    "title": "Pool Weather Front",
+    "hero_name": "Storm",
+    "hero_code": "36001a",
+    "aspects": [
+      "pool"
+    ],
+    "source": "generated"
+  },
+  {
     "date": "2026-10-15",
     "title": "Avengers Leader (Core)",
     "hero_name": "Iron Man",
