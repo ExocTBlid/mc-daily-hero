@@ -1,13 +1,13 @@
 [
   {
     "date": "2026-10-16",
-    "title": "Pool Weather Front",
+    "title": "Night Storm",
     "hero_name": "Storm",
     "hero_code": "36001a",
     "aspects": [
-      "pool"
+      "protection"
     ],
-    "source": "generated"
+    "source": "marvelcdb"
   },
   {
     "date": "2026-10-15",
