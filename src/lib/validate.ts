@@ -41,8 +41,9 @@ function countedSize(entries: { qty: number; card: Card }[]): number {
 
 /**
  * Legality for a finished player deck. This follows the checks MarvelCDB's
- * deck builder actually runs, plus the printed trait locks and the Restricted
- * keyword, which that builder does not enforce.
+ * deck builder actually runs, plus the printed trait locks, the Restricted
+ * keyword, and one card of each named aspect. That builder does not enforce
+ * the trait locks, Restricted, or the named-aspect card.
  */
 export function validateDeck(catalog: Catalog, draft: DeckDraft): string[] {
   const errors: string[] = []
@@ -148,6 +149,11 @@ export function validateDeck(catalog: Catalog, draft: DeckDraft): string[] {
       const used = matched.reduce((sum, entry) => sum + entry.qty, 0)
       if (used > option.limit) errors.push(`Off-aspect allowance is ${option.limit} cards (has ${used})`)
     }
+  }
+
+  for (const aspect of aspects) {
+    if (!isAspect(aspect) || countFaction(entries, aspect) > 0) continue
+    errors.push(`${label(aspect)} is named, but the deck has no ${label(aspect)} cards`)
   }
 
   if (rules.aspects === 4) {

@@ -130,7 +130,7 @@ function buildPrompt(
 
   return [
     `Build one Marvel Champions player deck for ${heroName}.`,
-    `Aspects: ${aspects.join(', ')}.`,
+    `Aspects: ${aspects.join(', ')}. Include at least one card from each named aspect.`,
     `The deck must contain every required card at the exact quantity shown. ${sizeGuidance(rules)} Every other card must come from the pool. Stay at or under each card's max.`,
     `Give the deck a thwart plan, a damage plan, and some economy. The summary is your own two or three sentences. Do not quote card text.`,
     `Reply with JSON only: {"title":"...","summary":"...","slots":{"code":1}}`,

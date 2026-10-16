@@ -44,6 +44,27 @@ describe('rejected decks', () => {
     expect(errors.some((error) => error.includes(signature.name!))).toBe(true)
   })
 
+  it('rejects a named aspect that has no cards', () => {
+    const hero = catalog.hero(cap.hero_code)!
+    const slots = Object.fromEntries(
+      Object.entries(cap.slots).filter(([code]) => {
+        const card = catalog.resolve(code)
+        return card?.faction_code !== 'leadership' || card.set_code === hero.set_code
+      }),
+    )
+    const errors = validateDeck(catalog, { ...cap, slots })
+    expect(errors.some((error) => error.includes('no Leadership cards'))).toBe(true)
+  })
+
+  it('counts a signature aspect card toward the named aspect', () => {
+    const hero = catalog.hero('04031a')!
+    const slots: DeckSlots = {}
+    for (const card of catalog.signatureCards(hero)) slots[card.code] = card.quantity ?? 1
+    const errors = validateDeck(catalog, { hero_code: hero.code, aspects: ['justice', 'pool'], slots })
+    expect(errors.some((error) => error.includes('no Pool cards'))).toBe(true)
+    expect(errors.some((error) => error.includes('no Justice cards'))).toBe(false)
+  })
+
   it('rejects a second aspect', () => {
     const justice = [...catalog.byCode.values()].find(
       (card) => card.faction_code === 'justice' && card.type_code === 'event' && card.name && !card.duplicate_of,
