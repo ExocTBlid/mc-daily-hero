@@ -1,5 +1,15 @@
 [
   {
+    "date": "2026-10-17",
+    "title": "Doctor Strange Pool Mystics",
+    "hero_name": "Doctor Strange",
+    "hero_code": "09001a",
+    "aspects": [
+      "pool"
+    ],
+    "source": "generated"
+  },
+  {
     "date": "2026-10-16",
     "title": "Night Storm",
     "hero_name": "Storm",

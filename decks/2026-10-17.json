@@ -1,0 +1,42 @@
+{
+  "date": "2026-10-17",
+  "title": "Doctor Strange Pool Mystics",
+  "hero_code": "09001a",
+  "hero_name": "Doctor Strange",
+  "aspects": [
+    "pool"
+  ],
+  "summary": "This build clears schemes with a dedicated thwart package while signature blasts and pool attack events pressure the villain. Layered basic and pool resources plus a Helicarrier keep expensive mystic plays affordable throughout the game. Meditation and flexible signature tools smooth draws so the deck stays online in both hero and alter-ego forms.",
+  "slots": {
+    "10019": 2,
+    "13024": 2,
+    "15019": 3,
+    "40060": 2,
+    "44018": 1,
+    "44023": 1,
+    "44025": 1,
+    "44026": 1,
+    "44027": 1,
+    "44050": 1,
+    "09002": 1,
+    "09003": 2,
+    "09004": 2,
+    "09005": 2,
+    "09006": 1,
+    "09007": 2,
+    "09008": 1,
+    "09009": 1,
+    "09010": 2,
+    "09011": 1,
+    "01085": 3,
+    "01087": 2,
+    "01088": 1,
+    "01089": 1,
+    "01090": 1,
+    "01092": 1,
+    "09026": 1
+  },
+  "source": "generated",
+  "fallback_decklist_id": null,
+  "card_data_rev": "44b7f2c9b01faa50f5a96cb40a9c0ecbbace7776"
+}
