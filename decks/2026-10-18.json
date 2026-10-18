@@ -1,0 +1,42 @@
+{
+  "date": "2026-10-18",
+  "title": "Harlem Powerhouse",
+  "hero_code": "62001a",
+  "hero_name": "Luke Cage",
+  "aspects": [
+    "aggression"
+  ],
+  "summary": "Luke Cage leans on aggression attack events and sturdy allies for a reliable damage plan while his signature toughness absorbs the hits. Dedicated thwart events keep schemes in check without derailing the offense. Resource cards plus Helicarrier supply the economy to chain big turns.",
+  "slots": {
+    "10013": 1,
+    "10016": 2,
+    "14029": 1,
+    "16043": 2,
+    "18011": 1,
+    "18012": 2,
+    "25019": 1,
+    "62002": 1,
+    "62003": 2,
+    "62004": 1,
+    "62005": 2,
+    "62006": 2,
+    "62007": 1,
+    "62008": 1,
+    "62009": 2,
+    "62010": 2,
+    "62011": 1,
+    "01050": 1,
+    "01084": 1,
+    "01055": 2,
+    "01090": 1,
+    "01088": 1,
+    "01092": 1,
+    "01057": 2,
+    "06018": 1,
+    "01052": 3,
+    "01053": 2
+  },
+  "source": "generated",
+  "fallback_decklist_id": null,
+  "card_data_rev": "44b7f2c9b01faa50f5a96cb40a9c0ecbbace7776"
+}
