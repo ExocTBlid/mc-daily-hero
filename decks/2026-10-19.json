@@ -1,0 +1,40 @@
+{
+  "date": "2026-10-19",
+  "title": "Silk's Just Webs",
+  "hero_code": "52001a",
+  "hero_name": "Silk",
+  "aspects": [
+    "justice"
+  ],
+  "summary": "Silk focuses on a justice thwart plan with efficient removal events and Overwatch to clear schemes quickly. Damage comes from her signature kicks plus Haymakers and Swift Retribution to finish villains. Economy is supported by Power of Justice, Helicarrier, and versatile resources to deploy web-warrior allies.",
+  "slots": {
+    "12031": 3,
+    "13024": 2,
+    "15013": 1,
+    "15014": 2,
+    "27048": 1,
+    "30019": 2,
+    "52002": 2,
+    "52003": 3,
+    "52004": 2,
+    "52005": 1,
+    "52006": 1,
+    "52007": 1,
+    "52008": 1,
+    "52009": 1,
+    "52010": 1,
+    "52011": 1,
+    "52012": 1,
+    "52021": 1,
+    "01060": 3,
+    "04049": 2,
+    "01087": 2,
+    "01092": 1,
+    "01062": 2,
+    "04047": 2,
+    "01059": 1
+  },
+  "source": "generated",
+  "fallback_decklist_id": null,
+  "card_data_rev": "44b7f2c9b01faa50f5a96cb40a9c0ecbbace7776"
+}

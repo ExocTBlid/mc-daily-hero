@@ -1,5 +1,15 @@
 [
   {
+    "date": "2026-10-19",
+    "title": "Silk's Just Webs",
+    "hero_name": "Silk",
+    "hero_code": "52001a",
+    "aspects": [
+      "justice"
+    ],
+    "source": "generated"
+  },
+  {
     "date": "2026-10-18",
     "title": "Harlem Powerhouse",
     "hero_name": "Luke Cage",
