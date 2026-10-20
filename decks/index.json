@@ -1,5 +1,15 @@
 [
   {
+    "date": "2026-10-20",
+    "title": "Jessica Jones - Alias Pool Work",
+    "hero_name": "Jessica Jones",
+    "hero_code": "61001a",
+    "aspects": [
+      "pool"
+    ],
+    "source": "generated"
+  },
+  {
     "date": "2026-10-19",
     "title": "Silk's Just Webs",
     "hero_name": "Silk",
