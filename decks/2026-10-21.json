@@ -1,0 +1,40 @@
+{
+  "date": "2026-10-21",
+  "title": "Ant-Man Aggression Swarm",
+  "hero_code": "12001a",
+  "hero_name": "Ant-Man",
+  "aspects": [
+    "aggression"
+  ],
+  "summary": "Army of Ants and aggression attack events deliver the damage plan while Chase Them Down and versatile allies handle thwarting. Resource generators plus Helicarrier and Mansion keep the economy stable for Resize turns and big plays. Giant Strength and Combat Training push consistent pressure without bloating the forty-card limit.",
+  "slots": {
+    "12002": 1,
+    "12003": 2,
+    "12004": 1,
+    "12005": 2,
+    "12006": 2,
+    "12007": 3,
+    "12008": 1,
+    "12009": 2,
+    "12010": 1,
+    "12024": 1,
+    "12030": 3,
+    "01050": 1,
+    "01051": 1,
+    "01052": 3,
+    "01053": 3,
+    "01055": 2,
+    "01057": 1,
+    "01083": 1,
+    "01084": 1,
+    "01086": 3,
+    "01088": 1,
+    "01089": 1,
+    "01090": 1,
+    "01091": 1,
+    "01092": 1
+  },
+  "source": "generated",
+  "fallback_decklist_id": null,
+  "card_data_rev": "44b7f2c9b01faa50f5a96cb40a9c0ecbbace7776"
+}
