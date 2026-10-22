@@ -1,5 +1,15 @@
 [
   {
+    "date": "2026-10-22",
+    "title": "Hulkling Protection Forms",
+    "hero_name": "Hulkling",
+    "hero_code": "56029a",
+    "aspects": [
+      "protection"
+    ],
+    "source": "generated"
+  },
+  {
     "date": "2026-10-21",
     "title": "Ant-Man Aggression Swarm",
     "hero_name": "Ant-Man",

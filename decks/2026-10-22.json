@@ -1,0 +1,42 @@
+{
+  "date": "2026-10-22",
+  "title": "Hulkling Protection Forms",
+  "hero_code": "56029a",
+  "hero_name": "Hulkling",
+  "aspects": [
+    "protection"
+  ],
+  "summary": "Hulkling cycles shapes and protection upgrades to stay sturdy while Counter-Punch lines and Shapeshifter Strike turn blocked attacks into reliable damage. Bait and Switch with Emergency and To the Rescue handle the thwart plan cleanly. Helicarrier plus the three basic resources keep the economy steady so forms and defenses hit the table on time.",
+  "slots": {
+    "15030": 2,
+    "52019": 2,
+    "56030": 1,
+    "56031": 1,
+    "56032": 1,
+    "56033": 1,
+    "56034": 1,
+    "56035": 1,
+    "56036": 1,
+    "56037": 3,
+    "56038": 2,
+    "56039": 2,
+    "56040": 1,
+    "56043": 1,
+    "56045": 1,
+    "56046": 1,
+    "56047": 2,
+    "60038": 1,
+    "60048": 2,
+    "60052": 2,
+    "01077": 3,
+    "01082": 2,
+    "01088": 1,
+    "01089": 1,
+    "01090": 1,
+    "01085": 2,
+    "01092": 1
+  },
+  "source": "generated",
+  "fallback_decklist_id": null,
+  "card_data_rev": "44b7f2c9b01faa50f5a96cb40a9c0ecbbace7776"
+}
