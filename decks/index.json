@@ -1,5 +1,15 @@
 [
   {
+    "date": "2026-10-23",
+    "title": "Justice on Replay",
+    "hero_name": "Echo",
+    "hero_code": "60037a",
+    "aspects": [
+      "justice"
+    ],
+    "source": "generated"
+  },
+  {
     "date": "2026-10-22",
     "title": "Hulkling Protection Forms",
     "hero_name": "Hulkling",

@@ -1,0 +1,43 @@
+{
+  "date": "2026-10-23",
+  "title": "Justice on Replay",
+  "hero_code": "60037a",
+  "hero_name": "Echo",
+  "aspects": [
+    "justice"
+  ],
+  "summary": "Echo leans on justice thwart events plus investigation upgrades and supports for steady scheme control. Signature kit pieces with Haymakers and combat allies form the damage plan while Helicarrier and justice resources keep plays flowing. Photographic Reflexes glue both plans together across the game.",
+  "slots": {
+    "12033": 1,
+    "15013": 2,
+    "15015": 1,
+    "28019": 1,
+    "58014": 1,
+    "60039": 1,
+    "60041": 2,
+    "60042": 1,
+    "60043": 1,
+    "60044": 1,
+    "60045": 1,
+    "60046": 1,
+    "60047": 1,
+    "60040a": 2,
+    "60040b": 2,
+    "60040c": 2,
+    "01059": 1,
+    "08012": 1,
+    "01060": 3,
+    "04049": 2,
+    "01087": 2,
+    "01062": 2,
+    "01092": 1,
+    "01063": 1,
+    "01064": 1,
+    "01065": 2,
+    "04047": 2,
+    "03032": 1
+  },
+  "source": "generated",
+  "fallback_decklist_id": null,
+  "card_data_rev": "44b7f2c9b01faa50f5a96cb40a9c0ecbbace7776"
+}
