@@ -1,5 +1,15 @@
 [
   {
+    "date": "2026-10-24",
+    "title": "Gamma Pool Smash",
+    "hero_name": "Hulk",
+    "hero_code": "10001a",
+    "aspects": [
+      "pool"
+    ],
+    "source": "generated"
+  },
+  {
     "date": "2026-10-23",
     "title": "Justice on Replay",
     "hero_name": "Echo",

@@ -1,0 +1,42 @@
+{
+  "date": "2026-10-24",
+  "title": "Gamma Pool Smash",
+  "hero_code": "10001a",
+  "hero_name": "Hulk",
+  "aspects": [
+    "pool"
+  ],
+  "summary": "Hulk leans on crushing hero attacks and cheap basic damage events to delete villains fast while Emergency, Assess, and rescue events form a steady thwart line. Helicarrier plus multi-resource cards and Everyday Hero keep the expensive hits paid for, and a light Pool splash plus gamma allies add staying power without bloating the curve.",
+  "slots": {
+    "10002": 2,
+    "10003": 2,
+    "10004": 2,
+    "10005": 2,
+    "10006": 2,
+    "10007": 2,
+    "10008": 1,
+    "10009": 1,
+    "10010": 1,
+    "10019": 2,
+    "12033": 2,
+    "13018": 1,
+    "13024": 1,
+    "14032": 2,
+    "21019": 1,
+    "28019": 2,
+    "40060": 2,
+    "41019": 1,
+    "44017": 1,
+    "44020": 1,
+    "44021": 1,
+    "62021": 1,
+    "01085": 2,
+    "01087": 2,
+    "01088": 1,
+    "01090": 1,
+    "01092": 1
+  },
+  "source": "generated",
+  "fallback_decklist_id": null,
+  "card_data_rev": "44b7f2c9b01faa50f5a96cb40a9c0ecbbace7776"
+}
