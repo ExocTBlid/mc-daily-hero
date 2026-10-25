@@ -1,0 +1,43 @@
+{
+  "date": "2026-10-25",
+  "title": "War Machine: Arsenal Command",
+  "hero_code": "23001a",
+  "hero_name": "War Machine",
+  "aspects": [
+    "leadership"
+  ],
+  "summary": "Leadership allies and ready effects clear schemes while War Machine weapons and team attacks supply reliable damage. Resource cards plus Triskelion and Helicarrier keep the economy stable so more allies stay in play. Sneak Attack and Inspired turns convert the board into burst damage when the villain is vulnerable.",
+  "slots": {
+    "12014": 1,
+    "23002": 1,
+    "23003": 1,
+    "23004": 1,
+    "23005": 2,
+    "23006": 1,
+    "23007": 1,
+    "23008": 2,
+    "23009": 2,
+    "23010": 2,
+    "23011": 2,
+    "23016": 2,
+    "23017": 2,
+    "23018": 2,
+    "01066": 1,
+    "01067": 1,
+    "01069": 2,
+    "01071": 3,
+    "01073": 1,
+    "01074": 2,
+    "01084": 1,
+    "01088": 1,
+    "01089": 1,
+    "01090": 1,
+    "01092": 1,
+    "03013": 1,
+    "03019": 1,
+    "04011": 1
+  },
+  "source": "generated",
+  "fallback_decklist_id": null,
+  "card_data_rev": "44b7f2c9b01faa50f5a96cb40a9c0ecbbace7776"
+}

@@ -1,5 +1,15 @@
 [
   {
+    "date": "2026-10-25",
+    "title": "War Machine: Arsenal Command",
+    "hero_name": "War Machine",
+    "hero_code": "23001a",
+    "aspects": [
+      "leadership"
+    ],
+    "source": "generated"
+  },
+  {
     "date": "2026-10-24",
     "title": "Gamma Pool Smash",
     "hero_name": "Hulk",
