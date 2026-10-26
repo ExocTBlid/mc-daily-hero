@@ -1,0 +1,42 @@
+{
+  "date": "2026-10-26",
+  "title": "Thor - Asgardian Fury",
+  "hero_code": "06001a",
+  "hero_name": "Thor",
+  "aspects": [
+    "aggression"
+  ],
+  "summary": "This aggression build delivers consistent damage through signature hammer plays, mean swings, and fury-backed attacks while chase and looking effects plus Asgard allies handle thwarting. Economy comes from dual resources, Helicarrier, Bifrost, and a stamina top-up so Thor stays online. The package stays lean at exactly forty cards with clear plans for both threat and the villain.",
+  "slots": {
+    "13011": 1,
+    "16043": 2,
+    "18011": 1,
+    "25014": 1,
+    "25023": 1,
+    "25024": 1,
+    "06002": 1,
+    "06003": 3,
+    "06004": 1,
+    "06005": 3,
+    "06006": 2,
+    "06007": 1,
+    "06008": 2,
+    "06009": 1,
+    "06010": 1,
+    "06012": 1,
+    "01050": 1,
+    "06017": 1,
+    "01092": 1,
+    "01055": 2,
+    "01090": 1,
+    "06018": 2,
+    "01057": 2,
+    "06019": 1,
+    "01052": 2,
+    "06014": 2,
+    "06015": 2
+  },
+  "source": "generated",
+  "fallback_decklist_id": null,
+  "card_data_rev": "44b7f2c9b01faa50f5a96cb40a9c0ecbbace7776"
+}

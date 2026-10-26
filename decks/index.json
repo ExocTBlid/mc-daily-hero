@@ -1,5 +1,15 @@
 [
   {
+    "date": "2026-10-26",
+    "title": "Thor - Asgardian Fury",
+    "hero_name": "Thor",
+    "hero_code": "06001a",
+    "aspects": [
+      "aggression"
+    ],
+    "source": "generated"
+  },
+  {
     "date": "2026-10-25",
     "title": "War Machine: Arsenal Command",
     "hero_name": "War Machine",
