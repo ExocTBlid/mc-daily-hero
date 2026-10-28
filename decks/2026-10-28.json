@@ -1,0 +1,40 @@
+{
+  "date": "2026-10-28",
+  "title": "X-23: Adamantium Justice",
+  "hero_code": "43001a",
+  "hero_name": "X-23",
+  "aspects": [
+    "justice"
+  ],
+  "summary": "X-23 pressures the main scheme with a dense Justice thwart package while her claws, Puncture Wound, and attack events shred enemies. Digging Deep, Justice resources, and Helicarrier keep the hand fueled for consistent multi-action turns. Wolfsbane and Marrow add board presence that matches her lethal X-Force style.",
+  "slots": {
+    "15013": 2,
+    "15014": 2,
+    "15015": 2,
+    "34020": 1,
+    "40051": 1,
+    "40060": 2,
+    "43002": 1,
+    "43003": 1,
+    "43004": 2,
+    "43005": 3,
+    "43006": 2,
+    "43007": 1,
+    "43008": 1,
+    "43009": 1,
+    "43010": 1,
+    "43011": 1,
+    "43012": 2,
+    "45021": 1,
+    "01060": 3,
+    "09038": 2,
+    "04049": 2,
+    "01061": 2,
+    "01087": 2,
+    "01062": 2,
+    "01092": 1
+  },
+  "source": "generated",
+  "fallback_decklist_id": null,
+  "card_data_rev": "44b7f2c9b01faa50f5a96cb40a9c0ecbbace7776"
+}

@@ -1,5 +1,15 @@
 [
   {
+    "date": "2026-10-28",
+    "title": "X-23: Adamantium Justice",
+    "hero_name": "X-23",
+    "hero_code": "43001a",
+    "aspects": [
+      "justice"
+    ],
+    "source": "generated"
+  },
+  {
     "date": "2026-10-27",
     "title": "Neighborhood Watch",
     "hero_name": "Spider-Man",
