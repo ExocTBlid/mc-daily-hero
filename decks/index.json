@@ -1,5 +1,15 @@
 [
   {
+    "date": "2026-10-29",
+    "title": "Black Widow RONIN! Duo z Pool!",
+    "hero_name": "Black Widow",
+    "hero_code": "08001a",
+    "aspects": [
+      "protection"
+    ],
+    "source": "marvelcdb"
+  },
+  {
     "date": "2026-10-28",
     "title": "X-23: Adamantium Justice",
     "hero_name": "X-23",
