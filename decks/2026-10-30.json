@@ -1,0 +1,40 @@
+{
+  "date": "2026-10-30",
+  "title": "Hexed Deadpool Corps",
+  "hero_code": "15001a",
+  "hero_name": "Scarlet Witch",
+  "aspects": [
+    "pool"
+  ],
+  "summary": "Scarlet Witch clears schemes with Emergency plus hex pressure while Cutupper, Haymaker, and Deadpool Corps allies drive the damage plan. Self resources, Mulligan, Plot Convenience, and Helicarrier supply steady economy. Distraction, Barely a Scratch, and Healing Factor keep her safe as the chaos builds.",
+  "slots": {
+    "15002": 1,
+    "15003": 1,
+    "15004": 4,
+    "15005": 3,
+    "15006": 1,
+    "15007": 1,
+    "15008": 3,
+    "15009": 1,
+    "15019": 3,
+    "44013": 1,
+    "44017": 2,
+    "44018": 1,
+    "44021": 2,
+    "44025": 1,
+    "44026": 1,
+    "44027": 1,
+    "44029": 2,
+    "44044": 1,
+    "44048": 2,
+    "44050": 1,
+    "44051": 1,
+    "44054": 2,
+    "01085": 2,
+    "01087": 1,
+    "01092": 1
+  },
+  "source": "generated",
+  "fallback_decklist_id": null,
+  "card_data_rev": "44b7f2c9b01faa50f5a96cb40a9c0ecbbace7776"
+}

@@ -1,5 +1,15 @@
 [
   {
+    "date": "2026-10-30",
+    "title": "Hexed Deadpool Corps",
+    "hero_name": "Scarlet Witch",
+    "hero_code": "15001a",
+    "aspects": [
+      "pool"
+    ],
+    "source": "generated"
+  },
+  {
     "date": "2026-10-29",
     "title": "Black Widow RONIN! Duo z Pool!",
     "hero_name": "Black Widow",
