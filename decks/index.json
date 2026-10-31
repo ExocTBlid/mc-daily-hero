@@ -1,5 +1,15 @@
 [
   {
+    "date": "2026-10-31",
+    "title": "Daredevil – Leadership: Devil's Advocates",
+    "hero_name": "Daredevil",
+    "hero_code": "60001a",
+    "aspects": [
+      "leadership"
+    ],
+    "source": "generated"
+  },
+  {
     "date": "2026-10-30",
     "title": "Hexed Deadpool Corps",
     "hero_name": "Scarlet Witch",

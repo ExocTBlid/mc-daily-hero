@@ -1,0 +1,43 @@
+{
+  "date": "2026-10-31",
+  "title": "Daredevil – Leadership: Devil's Advocates",
+  "hero_code": "60001a",
+  "hero_name": "Daredevil",
+  "aspects": [
+    "leadership"
+  ],
+  "summary": "This leadership build swarms cheap allies and readies them for repeated thwarts while legal signature tools keep schemes locked down. Sneak Attack, Lead from the Front, and Defender allies supply the damage plan once the board is set. Maria Hill plus leadership resources and Make the Call chains provide the economy to stay ahead on cards and plays.",
+  "slots": {
+    "21012": 1,
+    "23017": 2,
+    "23018": 2,
+    "29018": 2,
+    "60007": 1,
+    "60008": 2,
+    "60009": 2,
+    "60010": 2,
+    "60011": 1,
+    "60012": 1,
+    "60013": 1,
+    "60014": 1,
+    "60015": 1,
+    "60016": 1,
+    "60017": 1,
+    "60018": 1,
+    "62012": 1,
+    "62013": 1,
+    "01067": 1,
+    "04011": 1,
+    "03013": 1,
+    "01066": 1,
+    "01071": 3,
+    "01069": 2,
+    "01070": 2,
+    "05032": 2,
+    "04017": 1,
+    "01072": 2
+  },
+  "source": "generated",
+  "fallback_decklist_id": null,
+  "card_data_rev": "44b7f2c9b01faa50f5a96cb40a9c0ecbbace7776"
+}
