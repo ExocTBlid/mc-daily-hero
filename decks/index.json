@@ -1,5 +1,15 @@
 [
   {
+    "date": "2026-11-02",
+    "title": "Winter Soldier - Justice Infiltration",
+    "hero_name": "Winter Soldier",
+    "hero_code": "54001a",
+    "aspects": [
+      "justice"
+    ],
+    "source": "generated"
+  },
+  {
     "date": "2026-11-01",
     "title": "Jubilee Aggressive Fireworks",
     "hero_name": "Jubilee",

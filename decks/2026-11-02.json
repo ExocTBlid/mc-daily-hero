@@ -1,0 +1,41 @@
+{
+  "date": "2026-11-02",
+  "title": "Winter Soldier - Justice Infiltration",
+  "hero_code": "54001a",
+  "hero_name": "Winter Soldier",
+  "aspects": [
+    "justice"
+  ],
+  "summary": "Winter Soldier clears schemes with For Justice, Foiled, Infiltration and Surveillance Team while S.H.I.E.L.D. allies generate extra thwart. Metal Punch, Stealth Strike and Swift Retribution form the damage core alongside his rifle and arm. Helicarrier, Power of Justice and the three basic resources keep both plans fueled.",
+  "slots": {
+    "15014": 2,
+    "51015": 2,
+    "54002": 1,
+    "54003": 1,
+    "54004": 2,
+    "54005": 3,
+    "54006": 2,
+    "54007": 1,
+    "54008": 2,
+    "54009": 1,
+    "54010": 1,
+    "54011": 1,
+    "58013": 1,
+    "01060": 3,
+    "09038": 2,
+    "01064": 2,
+    "08013": 3,
+    "05031": 1,
+    "01062": 2,
+    "01088": 1,
+    "01089": 1,
+    "01090": 1,
+    "01092": 1,
+    "08011": 1,
+    "08012": 1,
+    "01084": 1
+  },
+  "source": "generated",
+  "fallback_decklist_id": null,
+  "card_data_rev": "44b7f2c9b01faa50f5a96cb40a9c0ecbbace7776"
+}
