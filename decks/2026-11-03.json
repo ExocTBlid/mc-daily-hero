@@ -1,0 +1,38 @@
+{
+  "date": "2026-11-03",
+  "title": "Angel Pool Aerial Tempo",
+  "hero_code": "42001a",
+  "hero_name": "Angel",
+  "aspects": [
+    "pool"
+  ],
+  "summary": "Angel clears schemes with cheap thwart events and aerial mobility while Razor Dive lines, Haymakers, and Directed Force form the main damage engine. Power of Flight plus Helicarrier and light digging keep the curve paid so X-Men allies can stick and trade. Pool Ambush and I Got This supply flexible combat setup without pushing past forty.",
+  "slots": {
+    "10019": 2,
+    "28019": 1,
+    "32019": 1,
+    "40060": 1,
+    "41019": 2,
+    "42002": 1,
+    "42003": 2,
+    "42004": 2,
+    "42005": 2,
+    "42006": 2,
+    "42007": 2,
+    "42008": 2,
+    "42009": 1,
+    "42010": 1,
+    "42020": 1,
+    "42022": 3,
+    "42023": 2,
+    "44021": 2,
+    "44051": 2,
+    "49021": 1,
+    "01092": 1,
+    "01085": 3,
+    "01087": 3
+  },
+  "source": "generated",
+  "fallback_decklist_id": null,
+  "card_data_rev": "44b7f2c9b01faa50f5a96cb40a9c0ecbbace7776"
+}
