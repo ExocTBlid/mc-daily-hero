@@ -1,5 +1,15 @@
 [
   {
+    "date": "2026-11-05",
+    "title": "Kinetic Flush Gambit",
+    "hero_name": "Gambit",
+    "hero_code": "37001a",
+    "aspects": [
+      "pool"
+    ],
+    "source": "generated"
+  },
+  {
     "date": "2026-11-04",
     "title": "Warlock's Fourfold Path",
     "hero_name": "Adam Warlock",

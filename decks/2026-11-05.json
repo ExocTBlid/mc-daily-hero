@@ -1,0 +1,43 @@
+{
+  "date": "2026-11-05",
+  "title": "Kinetic Flush Gambit",
+  "hero_code": "37001a",
+  "hero_name": "Gambit",
+  "aspects": [
+    "pool"
+  ],
+  "summary": "This Gambit leans on efficient basic and pool draws plus Helicarrier and Digging Deep to keep Charged Cards and flushes online. Thwart comes from signature agility plays, Emergency, To the Rescue, and X-Men allies like Professor X and Shadowcat. Damage is closed out with Haymaker, Hit and Run, Beat 'Em Up, and aggressive allies while Barely a Scratch and Self Confidence smooth rough turns.",
+  "slots": {
+    "10019": 1,
+    "12033": 2,
+    "14032": 1,
+    "18020": 1,
+    "21019": 1,
+    "32019": 1,
+    "33019": 1,
+    "36022": 1,
+    "37002": 1,
+    "37003": 1,
+    "37004": 1,
+    "37005": 1,
+    "37006": 3,
+    "37007": 2,
+    "37008": 2,
+    "37009": 2,
+    "37010": 2,
+    "37021": 2,
+    "40060": 2,
+    "44017": 1,
+    "44021": 2,
+    "44025": 1,
+    "46019": 1,
+    "01085": 2,
+    "01087": 2,
+    "01088": 1,
+    "01089": 1,
+    "01092": 1
+  },
+  "source": "generated",
+  "fallback_decklist_id": null,
+  "card_data_rev": "44b7f2c9b01faa50f5a96cb40a9c0ecbbace7776"
+}
