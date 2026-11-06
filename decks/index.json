@@ -1,5 +1,15 @@
 [
   {
+    "date": "2026-11-06",
+    "title": "Bishop Command Energy",
+    "hero_name": "Bishop",
+    "hero_code": "45001a",
+    "aspects": [
+      "leadership"
+    ],
+    "source": "generated"
+  },
+  {
     "date": "2026-11-05",
     "title": "Kinetic Flush Gambit",
     "hero_name": "Gambit",

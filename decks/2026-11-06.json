@@ -1,0 +1,38 @@
+{
+  "date": "2026-11-06",
+  "title": "Bishop Command Energy",
+  "hero_code": "45001a",
+  "hero_name": "Bishop",
+  "aspects": [
+    "leadership"
+  ],
+  "summary": "Bishop banks energy then converts it into a dense leadership ally web that clears schemes and stacks damage. Resource engines and ready effects keep allies online while Super-Charged lines and Command Authority close the villain. Lean forty-card build stays consistent without bloat.",
+  "slots": {
+    "21018": 2,
+    "23017": 2,
+    "45002": 1,
+    "45003": 1,
+    "45004": 1,
+    "45005": 1,
+    "45006": 2,
+    "45007": 2,
+    "45008": 2,
+    "45009": 2,
+    "45010": 3,
+    "45012": 1,
+    "45014": 2,
+    "45015": 1,
+    "01067": 1,
+    "01069": 2,
+    "01070": 2,
+    "01071": 3,
+    "01072": 2,
+    "01074": 3,
+    "01092": 2,
+    "03019": 1,
+    "04016": 1
+  },
+  "source": "generated",
+  "fallback_decklist_id": null,
+  "card_data_rev": "44b7f2c9b01faa50f5a96cb40a9c0ecbbace7776"
+}
