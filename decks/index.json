@@ -1,5 +1,15 @@
 [
   {
+    "date": "2026-11-07",
+    "title": "Black Panther Aggression: Vibranium Ambush",
+    "hero_name": "Black Panther",
+    "hero_code": "51001a",
+    "aspects": [
+      "aggression"
+    ],
+    "source": "generated"
+  },
+  {
     "date": "2026-11-06",
     "title": "Bishop Command Energy",
     "hero_name": "Bishop",
