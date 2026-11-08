@@ -1,5 +1,15 @@
 [
   {
+    "date": "2026-11-08",
+    "title": "Cyclops Protective Barrage",
+    "hero_name": "Cyclops",
+    "hero_code": "33001a",
+    "aspects": [
+      "protection"
+    ],
+    "source": "generated"
+  },
+  {
     "date": "2026-11-07",
     "title": "Black Panther Aggression: Vibranium Ambush",
     "hero_name": "Black Panther",
