@@ -1,0 +1,43 @@
+{
+  "date": "2026-11-09",
+  "title": "Falcon Justice Sweep",
+  "hero_code": "53001a",
+  "hero_name": "Falcon",
+  "aspects": [
+    "justice"
+  ],
+  "summary": "This build leans on justice thwart chains and aerial setup to clear schemes early while Bird of Prey lines and efficient allies supply steady damage. Dual-aspect resources, flight generators, and a mansion keep the hand fueled so Falcon can pivot between disruption and pressure without stalling.",
+  "slots": {
+    "15014": 2,
+    "42022": 2,
+    "42030": 2,
+    "53002": 1,
+    "53003": 2,
+    "53004": 2,
+    "53005": 2,
+    "53006": 1,
+    "53007": 1,
+    "53008": 1,
+    "53009": 1,
+    "53010": 1,
+    "53011": 1,
+    "53012": 1,
+    "53013": 1,
+    "58012": 1,
+    "01060": 3,
+    "04049": 2,
+    "01065": 2,
+    "01062": 2,
+    "01091": 1,
+    "01088": 1,
+    "01089": 1,
+    "01090": 1,
+    "08012": 1,
+    "01059": 1,
+    "09038": 2,
+    "01063": 1
+  },
+  "source": "generated",
+  "fallback_decklist_id": null,
+  "card_data_rev": "44b7f2c9b01faa50f5a96cb40a9c0ecbbace7776"
+}

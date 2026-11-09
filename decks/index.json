@@ -1,5 +1,15 @@
 [
   {
+    "date": "2026-11-09",
+    "title": "Falcon Justice Sweep",
+    "hero_name": "Falcon",
+    "hero_code": "53001a",
+    "aspects": [
+      "justice"
+    ],
+    "source": "generated"
+  },
+  {
     "date": "2026-11-08",
     "title": "Cyclops Protective Barrage",
     "hero_name": "Cyclops",
