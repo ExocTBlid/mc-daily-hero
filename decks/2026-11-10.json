@@ -1,0 +1,41 @@
+{
+  "date": "2026-11-10",
+  "title": "Wasp Pool Precision",
+  "hero_code": "13001a",
+  "hero_name": "Wasp",
+  "aspects": [
+    "pool"
+  ],
+  "summary": "This Wasp list leans on signature strikes and basic attack events for damage while cheap thwart events and allies clear schemes. Resource cards, Helicarrier, and Pym support keep the hand full so you can chain plays. A touch of pool tech rounds out consistency without bloating the forty-card build.",
+  "slots": {
+    "10019": 2,
+    "12033": 2,
+    "13002": 1,
+    "13003": 2,
+    "13004": 3,
+    "13005": 2,
+    "13006": 2,
+    "13007": 2,
+    "13008": 1,
+    "13009": 1,
+    "13010": 1,
+    "13018": 1,
+    "13024": 2,
+    "14032": 2,
+    "21019": 1,
+    "28019": 2,
+    "40060": 2,
+    "44025": 1,
+    "01084": 1,
+    "01085": 2,
+    "01087": 2,
+    "01088": 1,
+    "01089": 1,
+    "01090": 1,
+    "01091": 1,
+    "01092": 1
+  },
+  "source": "generated",
+  "fallback_decklist_id": null,
+  "card_data_rev": "d51b537b379667920f537e2dc8a0f327755ba44e"
+}

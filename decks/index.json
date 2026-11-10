@@ -1,5 +1,15 @@
 [
   {
+    "date": "2026-11-10",
+    "title": "Wasp Pool Precision",
+    "hero_name": "Wasp",
+    "hero_code": "13001a",
+    "aspects": [
+      "pool"
+    ],
+    "source": "generated"
+  },
+  {
     "date": "2026-11-09",
     "title": "Falcon Justice Sweep",
     "hero_name": "Falcon",
