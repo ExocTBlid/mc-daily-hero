@@ -1,5 +1,15 @@
 [
   {
+    "date": "2026-11-11",
+    "title": "Stepping Into Command",
+    "hero_name": "Magik",
+    "hero_code": "45030a",
+    "aspects": [
+      "leadership"
+    ],
+    "source": "generated"
+  },
+  {
     "date": "2026-11-10",
     "title": "Wasp Pool Precision",
     "hero_name": "Wasp",
