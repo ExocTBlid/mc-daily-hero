@@ -1,5 +1,15 @@
 [
   {
+    "date": "2026-11-12",
+    "title": "Vision Solar Density Aggression",
+    "hero_name": "Vision",
+    "hero_code": "26001a",
+    "aspects": [
+      "aggression"
+    ],
+    "source": "generated"
+  },
+  {
     "date": "2026-11-11",
     "title": "Stepping Into Command",
     "hero_name": "Magik",
