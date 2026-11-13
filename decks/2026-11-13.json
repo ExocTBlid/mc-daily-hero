@@ -1,0 +1,41 @@
+{
+  "date": "2026-11-13",
+  "title": "Magneto Metal Wall",
+  "hero_code": "49001a",
+  "hero_name": "Magneto",
+  "aspects": [
+    "protection"
+  ],
+  "summary": "This protection Magneto leans on metal events and armor upgrades to soak hits while Counter-Punch and hero attacks chip the villain. Bait and Switch plus efficient allies clear schemes, and Helicarrier with double resources keeps the magnetic suite online every turn.",
+  "slots": {
+    "12033": 2,
+    "15030": 2,
+    "32012": 1,
+    "32048": 1,
+    "40060": 2,
+    "49002": 1,
+    "49003": 1,
+    "49004": 1,
+    "49005": 1,
+    "49006": 1,
+    "49007": 2,
+    "49008": 2,
+    "49009": 2,
+    "49010": 2,
+    "49011": 2,
+    "49021": 1,
+    "01077": 2,
+    "01081": 2,
+    "01079": 2,
+    "01078": 2,
+    "05014": 2,
+    "01092": 1,
+    "01088": 1,
+    "01089": 1,
+    "01090": 1,
+    "01087": 2
+  },
+  "source": "generated",
+  "fallback_decklist_id": null,
+  "card_data_rev": "d51b537b379667920f537e2dc8a0f327755ba44e"
+}

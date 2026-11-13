@@ -1,5 +1,15 @@
 [
   {
+    "date": "2026-11-13",
+    "title": "Magneto Metal Wall",
+    "hero_name": "Magneto",
+    "hero_code": "49001a",
+    "aspects": [
+      "protection"
+    ],
+    "source": "generated"
+  },
+  {
     "date": "2026-11-12",
     "title": "Vision Solar Density Aggression",
     "hero_name": "Vision",
