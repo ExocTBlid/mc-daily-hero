@@ -1,5 +1,15 @@
 [
   {
+    "date": "2026-11-14",
+    "title": "Hawkeye Justice Precision",
+    "hero_name": "Hawkeye",
+    "hero_code": "04001a",
+    "aspects": [
+      "justice"
+    ],
+    "source": "generated"
+  },
+  {
     "date": "2026-11-13",
     "title": "Magneto Metal Wall",
     "hero_name": "Magneto",

@@ -1,0 +1,40 @@
+{
+  "date": "2026-11-14",
+  "title": "Hawkeye Justice Precision",
+  "hero_code": "04001a",
+  "hero_name": "Hawkeye",
+  "aspects": [
+    "justice"
+  ],
+  "summary": "This deck uses justice thwart tools and investigator upgrades to control schemes while Hawkeye's arrows and basic attacks deliver reliable damage. Resource cards and supports provide the economy to keep arrows and events flowing. Allies reinforce both the thwart and damage plans for consistent pressure.",
+  "slots": {
+    "15014": 2,
+    "28019": 1,
+    "40060": 1,
+    "04004": 1,
+    "04008": 2,
+    "04007": 2,
+    "04006": 2,
+    "04005": 2,
+    "04009": 2,
+    "04010": 2,
+    "04002": 1,
+    "04003": 1,
+    "04049": 3,
+    "01060": 2,
+    "08017": 2,
+    "04047": 2,
+    "08024": 2,
+    "01062": 2,
+    "01087": 2,
+    "01092": 1,
+    "01091": 1,
+    "08011": 1,
+    "08012": 1,
+    "01084": 1,
+    "01088": 1
+  },
+  "source": "generated",
+  "fallback_decklist_id": null,
+  "card_data_rev": "d51b537b379667920f537e2dc8a0f327755ba44e"
+}
