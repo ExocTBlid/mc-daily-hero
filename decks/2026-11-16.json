@@ -1,0 +1,41 @@
+{
+  "date": "2026-11-16",
+  "title": "Nebula: Cutthroat Command",
+  "hero_code": "22001a",
+  "hero_name": "Nebula",
+  "aspects": [
+    "leadership"
+  ],
+  "summary": "This leadership build uses Make the Call and Guardians allies to establish a flexible board that both thwarts schemes and piles on damage. Lethal Intent lines, Sneak Attack, and ally strikes form the damage plan while Push Ahead plus ally thwarts handle threat. Maria Hill, Welcome Aboard, Band Together, and Power of Leadership supply consistent economy.",
+  "slots": {
+    "16019": 1,
+    "17013": 1,
+    "17020": 1,
+    "18019": 1,
+    "20016": 1,
+    "20027": 3,
+    "21018": 1,
+    "22002": 1,
+    "22003": 1,
+    "22004": 2,
+    "22005": 1,
+    "22006": 1,
+    "22007": 2,
+    "22008": 2,
+    "22009": 2,
+    "22010": 3,
+    "22033": 1,
+    "23017": 2,
+    "29018": 2,
+    "01067": 1,
+    "01066": 1,
+    "03013": 1,
+    "01071": 3,
+    "01069": 2,
+    "01070": 1,
+    "01072": 2
+  },
+  "source": "generated",
+  "fallback_decklist_id": null,
+  "card_data_rev": "d51b537b379667920f537e2dc8a0f327755ba44e"
+}
