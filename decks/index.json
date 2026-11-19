@@ -1,5 +1,15 @@
 [
   {
+    "date": "2026-11-17",
+    "title": "Fists of Aggression",
+    "hero_name": "Iron Fist",
+    "hero_code": "64001a",
+    "aspects": [
+      "aggression"
+    ],
+    "source": "generated"
+  },
+  {
     "date": "2026-11-16",
     "title": "Nebula: Cutthroat Command",
     "hero_name": "Nebula",

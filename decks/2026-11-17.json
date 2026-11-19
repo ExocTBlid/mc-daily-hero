@@ -1,0 +1,40 @@
+{
+  "date": "2026-11-17",
+  "title": "Fists of Aggression",
+  "hero_code": "64001a",
+  "hero_name": "Iron Fist",
+  "aspects": [
+    "aggression"
+  ],
+  "summary": "This aggression Iron Fist deck chains martial-artist allies and attack events into a reliable damage plan while Chase Them Down and Smash the Problem cover thwarting. Power of Aggression plus Helicarrier keep the economy flowing so upgrades stay online. Signature chi cards flex between both plans without stretching the forty-card limit.",
+  "slots": {
+    "19030": 2,
+    "25019": 2,
+    "28014": 3,
+    "28016": 2,
+    "63015": 1,
+    "63017": 3,
+    "63022": 1,
+    "64002": 3,
+    "64003": 1,
+    "64004": 2,
+    "64005": 2,
+    "64006": 1,
+    "64007": 1,
+    "64008": 1,
+    "64009": 1,
+    "64010": 1,
+    "64011": 1,
+    "64012": 1,
+    "64021": 1,
+    "64022": 1,
+    "64025": 1,
+    "64030": 2,
+    "01052": 3,
+    "01055": 2,
+    "01092": 1
+  },
+  "source": "generated",
+  "fallback_decklist_id": null,
+  "card_data_rev": "055b6b427854287943ffa025adf8c39b44494fbf"
+}
