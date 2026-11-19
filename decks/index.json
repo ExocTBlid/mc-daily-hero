@@ -1,5 +1,15 @@
 [
   {
+    "date": "2026-11-18",
+    "title": "Ironheart Shield Protocol",
+    "hero_name": "Ironheart",
+    "hero_code": "29001a",
+    "aspects": [
+      "protection"
+    ],
+    "source": "generated"
+  },
+  {
     "date": "2026-11-17",
     "title": "Fists of Aggression",
     "hero_name": "Iron Fist",

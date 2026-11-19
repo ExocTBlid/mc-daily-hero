@@ -1,0 +1,40 @@
+{
+  "date": "2026-11-18",
+  "title": "Ironheart Shield Protocol",
+  "hero_code": "29001a",
+  "hero_name": "Ironheart",
+  "aspects": [
+    "protection"
+  ],
+  "summary": "Protection Ironheart clears schemes with repeatable thwart events and signature tech while Photon Beams plus counterattacks supply steady damage. Resource cards, Helicarrier, and Nick Fury keep the hand full so upgrades and allies stay online. Defensive events and armor absorb the villain swing so the board can ramp safely.",
+  "slots": {
+    "15030": 3,
+    "28019": 2,
+    "28020": 1,
+    "29004": 1,
+    "29005": 2,
+    "29006": 3,
+    "29007": 2,
+    "29008": 1,
+    "29009": 2,
+    "29010": 1,
+    "29011": 1,
+    "29012": 1,
+    "29013": 1,
+    "29027": 2,
+    "40060": 2,
+    "01075": 1,
+    "01077": 3,
+    "01078": 2,
+    "01081": 2,
+    "01084": 1,
+    "01087": 2,
+    "01088": 1,
+    "01089": 1,
+    "01090": 1,
+    "01092": 1
+  },
+  "source": "generated",
+  "fallback_decklist_id": null,
+  "card_data_rev": "055b6b427854287943ffa025adf8c39b44494fbf"
+}
