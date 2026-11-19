@@ -1,6 +1,33 @@
 import type { Catalog } from './catalog'
 import { ASPECTS, type Aspect } from './types'
 
+/**
+ * First day of the smaller pool share. Earlier days split all five aspects
+ * evenly, and every aspect finished that stretch tied, so they stay out of
+ * this count. Counting them would treat pool as months ahead of a 5% share.
+ */
+export const ASPECT_SHARE_SINCE = '2026-11-20'
+
+/** Days that count toward the current aspect share. */
+export function datesInAspectShare(dates: readonly string[]): string[] {
+  return dates.filter((day) => day >= ASPECT_SHARE_SINCE)
+}
+
+/**
+ * Relative share of days. The four main aspects take 19 eightieths each.
+ * Pool takes 4 eightieths, which is one day in twenty.
+ */
+const ASPECT_WEIGHT: Record<Aspect, number> = {
+  aggression: 19,
+  justice: 19,
+  leadership: 19,
+  protection: 19,
+  pool: 4,
+}
+
+/** Scale that makes count/weight an integer for both weights. */
+const WEIGHT_SCALE = 76
+
 /** Calendar date in America/Los_Angeles, YYYY-MM-DD. */
 export function pacificDate(now = new Date()): string {
   return new Intl.DateTimeFormat('en-CA', {
@@ -57,9 +84,9 @@ export function pickHero(catalog: Catalog, date: string, used: Map<string, numbe
 }
 
 /**
- * Deal the aspects this hero may play, preferring the ones furthest behind.
- * Ties follow a year-seeded order, so each aspect comes up once before any
- * aspect comes up again.
+ * Deal the aspects this hero may play, preferring the ones furthest behind
+ * their share. Ties follow a year-seeded order. When two aspects are equally
+ * far behind, the more common one is dealt first, so pool waits out a tie.
  */
 export function pickAspects(
   catalog: Catalog,
@@ -95,19 +122,26 @@ function compareAspectChoice(
   for (let i = 0; i < length; i++) {
     if (!a[i]) return -1
     if (!b[i]) return 1
-    if (a[i][0] !== b[i][0]) return a[i][0] - b[i][0]
-    if (a[i][1] !== b[i][1]) return a[i][1] - b[i][1]
+    for (let part = 0; part < a[i].length; part++) {
+      if (a[i][part] !== b[i][part]) return a[i][part] - b[i][part]
+    }
   }
   return 0
 }
 
-/** Least-used aspect first, then the year-seeded order. */
+/**
+ * Furthest behind its share first. The key is count/weight, then the more
+ * common aspect, then the year-seeded order.
+ */
 function aspectKeys(
   choice: readonly Aspect[],
   used: Map<string, number>,
   rank: Map<Aspect, number>,
-): [number, number][] {
+): [number, number, number][] {
   return choice
-    .map((aspect): [number, number] => [used.get(aspect) ?? 0, rank.get(aspect) ?? 0])
-    .sort((a, b) => a[0] - b[0] || a[1] - b[1])
+    .map((aspect): [number, number, number] => {
+      const weight = ASPECT_WEIGHT[aspect]
+      return [(used.get(aspect) ?? 0) * (WEIGHT_SCALE / weight), -weight, rank.get(aspect) ?? 0]
+    })
+    .sort((a, b) => a[0] - b[0] || a[1] - b[1] || a[2] - b[2])
 }

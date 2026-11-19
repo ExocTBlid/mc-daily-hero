@@ -74,7 +74,7 @@ export type IndexEntry = {
 export const ASPECTS = ['aggression', 'justice', 'leadership', 'protection', 'pool'] as const
 export type Aspect = (typeof ASPECTS)[number]
 
-/** The four aspects Adam Warlock has to split evenly. Pool is a normal aspect for everyone else. */
+/** The four aspects Adam Warlock has to split evenly. Everyone else can also be dealt pool, about one day in twenty. */
 export const CORE_ASPECTS: Aspect[] = ['aggression', 'justice', 'leadership', 'protection']
 
 export const PLAYER_TYPES = new Set([

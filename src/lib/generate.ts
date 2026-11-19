@@ -2,7 +2,7 @@ import OpenAI from 'openai'
 import type { Catalog, HeroRules } from './catalog'
 import { aspectCounts, heroCounts, listDeckDates, loadDeck, writeDeck } from './decks'
 import { decklistUrl, findPublicDecks, type PublicDeck } from './public-decks'
-import { pacificDate, pickAspects, pickHero } from './rotation'
+import { datesInAspectShare, pacificDate, pickAspects, pickHero } from './rotation'
 import { formatShortlist, shortlist } from './shortlist'
 import { preferredSizeError, validateDeck } from './validate'
 import type { DeckSlots, SavedDeck } from './types'
@@ -26,7 +26,12 @@ export async function generateDailyDeck(catalog: Catalog, options: GenerateOptio
   const heroCode = pickHero(catalog, date, heroCounts(catalog, history))
   const hero = catalog.hero(heroCode)
   if (!hero?.name) throw new Error(`Hero ${heroCode} has no name`)
-  const aspects = pickAspects(catalog, heroCode, date, aspectCounts(history))
+  const aspects = pickAspects(
+    catalog,
+    heroCode,
+    date,
+    aspectCounts(datesInAspectShare(history)),
+  )
   const rows = shortlist(catalog, heroCode, aspects)
   const lists = formatShortlist(rows)
   const examples = await findPublicDecks(catalog, heroCode, date, 2, 21).catch(() => [])

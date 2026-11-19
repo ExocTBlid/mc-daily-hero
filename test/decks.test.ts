@@ -2,7 +2,7 @@ import { readFileSync, readdirSync } from 'node:fs'
 import path from 'node:path'
 import { describe, expect, it } from 'vitest'
 import { loadCatalog } from '../src/lib/catalog'
-import { pacificDate, pickAspects, pickHero } from '../src/lib/rotation'
+import { datesInAspectShare, pacificDate, pickAspects, pickHero } from '../src/lib/rotation'
 import { ASPECTS, CORE_ASPECTS, PLAYER_TYPES, type DeckSlots } from '../src/lib/types'
 import { preferredSizeError, validateDeck } from '../src/lib/validate'
 
@@ -163,6 +163,26 @@ describe('the day', () => {
       used.set(aspect, (used.get(aspect) ?? 0) + 1)
     }
     expect(pickAspects(catalog, cap.code, '2026-06-01', used)).toEqual(['pool'])
+  })
+
+  it('leaves the even five-way split out of the pool share', () => {
+    expect(datesInAspectShare(['2026-09-25', '2026-11-19', '2026-11-20', '2026-12-01'])).toEqual([
+      '2026-11-20',
+      '2026-12-01',
+    ])
+  })
+
+  it('deals pool on one single-aspect day in twenty', () => {
+    const cap = catalog.heroes.find((hero) => hero.name === 'Captain America')!
+    const used = new Map<string, number>()
+    let pool = 0
+    for (let day = 0; day < 80; day++) {
+      const [aspect] = pickAspects(catalog, cap.code, '2026-06-01', used)
+      if (aspect === 'pool') pool += 1
+      used.set(aspect, (used.get(aspect) ?? 0) + 1)
+    }
+    expect(pool).toBe(4)
+    for (const aspect of CORE_ASPECTS) expect(used.get(aspect)).toBe(19)
   })
 })
 
