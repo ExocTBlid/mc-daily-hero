@@ -1,5 +1,15 @@
 [
   {
+    "date": "2026-11-19",
+    "title": "Justice Bamf Nightcrawler",
+    "hero_name": "Nightcrawler",
+    "hero_code": "48001a",
+    "aspects": [
+      "justice"
+    ],
+    "source": "generated"
+  },
+  {
     "date": "2026-11-18",
     "title": "Ironheart Shield Protocol",
     "hero_name": "Ironheart",

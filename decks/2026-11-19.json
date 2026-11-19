@@ -1,0 +1,38 @@
+{
+  "date": "2026-11-19",
+  "title": "Justice Bamf Nightcrawler",
+  "hero_code": "48001a",
+  "hero_name": "Nightcrawler",
+  "aspects": [
+    "justice"
+  ],
+  "summary": "This Justice build leans on efficient thwart events and setup supports to clear schemes quickly while Nightcrawler’s teleport package keeps threat flexible. Damage comes from repeated attack events plus signature strike lines once the board is stable. Double justice resources, interrogation value, and a light ally package keep the hand fueled without bloating past forty.",
+  "slots": {
+    "15013": 2,
+    "15014": 2,
+    "34020": 2,
+    "48002": 1,
+    "48003": 1,
+    "48004": 1,
+    "48005": 1,
+    "48006": 3,
+    "48007": 2,
+    "48008": 1,
+    "48009": 2,
+    "48010": 1,
+    "48011": 2,
+    "48032": 2,
+    "01060": 3,
+    "04049": 2,
+    "01061": 2,
+    "09038": 2,
+    "01065": 2,
+    "01062": 2,
+    "01063": 2,
+    "01064": 1,
+    "08012": 1
+  },
+  "source": "generated",
+  "fallback_decklist_id": null,
+  "card_data_rev": "055b6b427854287943ffa025adf8c39b44494fbf"
+}
