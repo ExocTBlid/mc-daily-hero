@@ -33,13 +33,29 @@ const KEEP: (keyof Card)[] = [
 
 const OUT = path.resolve(process.cwd(), 'data/player-cards.json')
 
-async function latestSha(): Promise<string> {
-  const response = await fetch('https://api.github.com/repos/zzorba/marvelsdb-json-data/commits/master', {
-    headers: { accept: 'application/vnd.github+json', 'user-agent': 'mc-daily-hero' },
-  })
-  if (!response.ok) throw new Error(`GitHub returned ${response.status}`)
-  const body = (await response.json()) as { sha: string }
-  return body.sha
+const CARD_REPO = 'https://github.com/zzorba/marvelsdb-json-data.git'
+
+function latestSha(): string {
+  // actions/checkout stores this repo's token as an extra header for every
+  // github.com URL. Clear it so this public read stays anonymous. The token
+  // cannot read the card repo, and the unauthenticated REST API is what
+  // returned 403 from the shared runner address.
+  let output = ''
+  try {
+    output = execFileSync(
+      'git',
+      ['-c', 'http.https://github.com/.extraheader=', 'ls-remote', CARD_REPO, 'refs/heads/master'],
+      { encoding: 'utf8' },
+    )
+  } catch (error) {
+    const detail = error instanceof Error ? error.message : String(error)
+    throw new Error(`Could not read the card data revision: ${detail}`)
+  }
+  const sha = output.split(/\s+/, 1)[0] ?? ''
+  if (!/^[0-9a-f]{40}$/.test(sha)) {
+    throw new Error(`Could not read the card data revision: ${output.trim() || 'no revision returned'}`)
+  }
+  return sha
 }
 
 function compact(raw: Record<string, unknown>): Card {
@@ -52,7 +68,7 @@ function compact(raw: Record<string, unknown>): Card {
   return card as Card
 }
 
-const sha = await latestSha()
+const sha = latestSha()
 const work = mkdtempSync(path.join(tmpdir(), 'mc-cards-'))
 try {
   const tarball = path.join(work, 'cards.tar.gz')

@@ -1,6 +1,5 @@
 import type { Catalog } from './catalog'
-import { deckbuildingBlock, isRestricted, restrictedBonus } from './text'
-import { hasTrait } from './text'
+import { deckbuildingBlock, hasTrait } from './text'
 import { ASPECTS, PLAYER_TYPES, type Aspect, type Card, type DeckOption, type DeckSlots } from './types'
 
 export type DeckDraft = {
@@ -11,7 +10,6 @@ export type DeckDraft = {
 
 const MIN_DECK = 40
 const MAX_DECK = 50
-const MAX_RESTRICTED = 2
 
 function deckLimit(card: Card): number {
   if (typeof card.deck_limit === 'number') return card.deck_limit
@@ -41,9 +39,10 @@ function countedSize(entries: { qty: number; card: Card }[]): number {
 
 /**
  * Legality for a finished player deck. This follows the checks MarvelCDB's
- * deck builder actually runs, plus the printed trait locks, the Restricted
- * keyword, and one card of each named aspect. That builder does not enforce
- * the trait locks, Restricted, or the named-aspect card.
+ * deck builder actually runs, plus the printed trait locks and one card of
+ * each named aspect. That builder does not enforce the trait locks or the
+ * named-aspect card. Restricted limits how many of those cards a player can
+ * control in play, so a deck may contain more than two.
  */
 export function validateDeck(catalog: Catalog, draft: DeckDraft): string[] {
   const errors: string[] = []
@@ -170,10 +169,6 @@ export function validateDeck(catalog: Catalog, draft: DeckDraft): string[] {
     const right = countFaction(entries, aspects[1])
     if (left !== right) errors.push(`${label(aspects[0])} and ${label(aspects[1])} must match (${left} vs ${right})`)
   }
-
-  const restricted = entries.reduce((sum, entry) => sum + (isRestricted(entry.card) ? entry.qty : 0), 0)
-  const restrictedMax = MAX_RESTRICTED + restrictedBonus(hero, alterEgo, entries)
-  if (restricted > restrictedMax) errors.push(`A deck can include ${restrictedMax} restricted cards (has ${restricted})`)
 
   const size = countedSize(entries)
   if (size < MIN_DECK) errors.push(`Deck has ${size} cards; the minimum is ${MIN_DECK}`)
