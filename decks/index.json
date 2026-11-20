@@ -1,5 +1,15 @@
 [
   {
+    "date": "2026-11-20",
+    "title": "Elektra - Leadership Strike Force",
+    "hero_name": "Elektra",
+    "hero_code": "63001a",
+    "aspects": [
+      "leadership"
+    ],
+    "source": "generated"
+  },
+  {
     "date": "2026-11-19",
     "title": "Justice Bamf Nightcrawler",
     "hero_name": "Nightcrawler",

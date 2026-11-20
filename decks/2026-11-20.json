@@ -1,0 +1,43 @@
+{
+  "date": "2026-11-20",
+  "title": "Elektra - Leadership Strike Force",
+  "hero_code": "63001a",
+  "hero_name": "Elektra",
+  "aspects": [
+    "leadership"
+  ],
+  "summary": "This build leans on leadership allies and call events for steady thwarting while Elektra's sai package and team attack events push damage. Cheap ready and teamwork effects keep the board active each turn. Helicarrier, Triskelion, Maria Hill, and leadership resources supply the economy to replay allies and finish schemes.",
+  "slots": {
+    "21013": 1,
+    "23017": 2,
+    "62012": 1,
+    "62013": 1,
+    "63005": 1,
+    "63006": 2,
+    "63007": 2,
+    "63008": 2,
+    "63009": 2,
+    "63010": 1,
+    "63011": 1,
+    "63012": 2,
+    "63013": 1,
+    "63014": 1,
+    "01067": 1,
+    "04011": 1,
+    "03013": 1,
+    "01066": 1,
+    "03014": 1,
+    "01071": 3,
+    "01069": 2,
+    "01070": 2,
+    "06032": 2,
+    "05032": 1,
+    "04017": 1,
+    "01072": 2,
+    "01092": 1,
+    "01073": 1
+  },
+  "source": "generated",
+  "fallback_decklist_id": null,
+  "card_data_rev": "055b6b427854287943ffa025adf8c39b44494fbf"
+}
