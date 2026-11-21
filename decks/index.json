@@ -1,5 +1,15 @@
 [
   {
+    "date": "2026-11-21",
+    "title": "Rocket Raccoon: Full Auto Aggression",
+    "hero_name": "Rocket Raccoon",
+    "hero_code": "16029a",
+    "aspects": [
+      "aggression"
+    ],
+    "source": "generated"
+  },
+  {
     "date": "2026-11-20",
     "title": "Elektra - Leadership Strike Force",
     "hero_name": "Elektra",

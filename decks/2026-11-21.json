@@ -1,0 +1,41 @@
+{
+  "date": "2026-11-21",
+  "title": "Rocket Raccoon: Full Auto Aggression",
+  "hero_code": "16029a",
+  "hero_name": "Rocket Raccoon",
+  "aspects": [
+    "aggression"
+  ],
+  "summary": "Cheap aggression thwart events keep schemes under control between reloads while weapon upgrades and strike events deliver the main damage plan. Resource cards plus Rocket's salvage loop fuel constant plays so the arsenal stays online. Light Guardian allies add chip damage and flexible board presence without bloating the curve.",
+  "slots": {
+    "16030": 2,
+    "16031": 2,
+    "16032": 1,
+    "16033": 2,
+    "16034": 2,
+    "16035": 1,
+    "16036": 1,
+    "16037": 1,
+    "16038": 2,
+    "16039": 1,
+    "16040": 1,
+    "16043": 2,
+    "16046": 1,
+    "18011": 1,
+    "18013": 2,
+    "21041": 1,
+    "25014": 1,
+    "28014": 1,
+    "32047": 2,
+    "40060": 2,
+    "54014": 2,
+    "01050": 1,
+    "01052": 2,
+    "01053": 2,
+    "09037": 2,
+    "01055": 2
+  },
+  "source": "generated",
+  "fallback_decklist_id": null,
+  "card_data_rev": "055b6b427854287943ffa025adf8c39b44494fbf"
+}
