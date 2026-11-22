@@ -1,0 +1,40 @@
+{
+  "date": "2026-11-22",
+  "title": "SP//dr Suit Protective Web Guard",
+  "hero_code": "31001a",
+  "hero_name": "SP//dr Suit",
+  "aspects": [
+    "protection"
+  ],
+  "summary": "Web-Traps and protection thwart events clear schemes while defenses set up reliable counters. Blocking fuels consistent damage through punches and thwips as the suit stays online. Helicarrier plus protection resources keep upgrades and allies flowing without overextending.",
+  "slots": {
+    "15030": 3,
+    "27010": 1,
+    "31003": 1,
+    "31004": 3,
+    "31005": 2,
+    "31006": 2,
+    "31007": 1,
+    "31008": 1,
+    "31009": 1,
+    "31010": 1,
+    "31011": 1,
+    "31012": 1,
+    "31013": 1,
+    "31014": 1,
+    "31016": 2,
+    "31017": 2,
+    "31019": 1,
+    "31020": 2,
+    "01077": 3,
+    "01078": 2,
+    "01081": 2,
+    "01082": 2,
+    "01079": 2,
+    "01080": 1,
+    "01092": 1
+  },
+  "source": "generated",
+  "fallback_decklist_id": null,
+  "card_data_rev": "055b6b427854287943ffa025adf8c39b44494fbf"
+}
