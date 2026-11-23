@@ -1,5 +1,15 @@
 [
   {
+    "date": "2026-11-23",
+    "title": "Deadpool Dispenses Justice",
+    "hero_name": "Deadpool",
+    "hero_code": "44001a",
+    "aspects": [
+      "justice"
+    ],
+    "source": "generated"
+  },
+  {
     "date": "2026-11-22",
     "title": "SP//dr Suit Protective Web Guard",
     "hero_name": "SP//dr Suit",

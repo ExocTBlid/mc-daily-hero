@@ -1,0 +1,38 @@
+{
+  "date": "2026-11-23",
+  "title": "Deadpool Dispenses Justice",
+  "hero_code": "44001a",
+  "hero_name": "Deadpool",
+  "aspects": [
+    "justice"
+  ],
+  "summary": "Justice thwart events and supports form the main scheme-clearing engine while signature weapons and basic attacks push consistent damage. Resource cards and signature economy pieces keep hands full to deploy allies and upgrades on curve. The mix stays lean at forty so the deck cycles into its plans quickly.",
+  "slots": {
+    "15013": 2,
+    "40060": 3,
+    "44002": 1,
+    "44003": 1,
+    "44004": 2,
+    "44005": 1,
+    "44006": 2,
+    "44007": 1,
+    "44008": 1,
+    "44009": 1,
+    "44010": 2,
+    "44011": 1,
+    "44012": 2,
+    "01059": 1,
+    "01060": 3,
+    "01061": 2,
+    "01062": 2,
+    "01064": 2,
+    "01065": 2,
+    "01087": 2,
+    "04049": 2,
+    "08011": 1,
+    "09038": 3
+  },
+  "source": "generated",
+  "fallback_decklist_id": null,
+  "card_data_rev": "055b6b427854287943ffa025adf8c39b44494fbf"
+}
