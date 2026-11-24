@@ -1,0 +1,39 @@
+{
+  "date": "2026-11-24",
+  "title": "Colossal Pool Chaos",
+  "hero_code": "32001a",
+  "hero_name": "Colossus",
+  "aspects": [
+    "pool"
+  ],
+  "summary": "Colossus anchors a pool-aspect build that mixes reliable steel defense with chaotic resource swings and surprise plays. Efficient thwart events and generation keep schemes in check while fists, allies, and attack events deliver steady damage. Pool sustain tools help him outlast long villain phases.",
+  "slots": {
+    "12033": 3,
+    "14032": 2,
+    "21019": 1,
+    "28019": 2,
+    "32002": 1,
+    "32003": 1,
+    "32004": 1,
+    "32005": 1,
+    "32006": 2,
+    "32007": 2,
+    "32008": 3,
+    "32009": 2,
+    "32010": 2,
+    "36022": 1,
+    "40060": 2,
+    "44017": 2,
+    "44021": 1,
+    "44025": 1,
+    "44029": 3,
+    "01088": 1,
+    "01089": 1,
+    "01090": 1,
+    "01085": 2,
+    "01087": 2
+  },
+  "source": "generated",
+  "fallback_decklist_id": null,
+  "card_data_rev": "055b6b427854287943ffa025adf8c39b44494fbf"
+}
