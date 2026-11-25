@@ -1,5 +1,15 @@
 [
   {
+    "date": "2026-11-25",
+    "title": "Uncanny Rogue Command",
+    "hero_name": "Rogue",
+    "hero_code": "38001a",
+    "aspects": [
+      "leadership"
+    ],
+    "source": "generated"
+  },
+  {
     "date": "2026-11-24",
     "title": "Colossal Pool Chaos",
     "hero_name": "Colossus",

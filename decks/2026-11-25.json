@@ -1,0 +1,37 @@
+{
+  "date": "2026-11-25",
+  "title": "Uncanny Rogue Command",
+  "hero_code": "38001a",
+  "hero_name": "Rogue",
+  "aspects": [
+    "leadership"
+  ],
+  "summary": "This Leadership build leans on cheap ally recursion and X-Men teamwork to keep steady thwart pressure while Inspired and coordinated attacks convert the same bodies into reliable damage. Helicarrier plus Leadership resources and Maria Hill smooth the curve so Rogue can flip, adapt powers, and keep the board full without stalling. Southern Cross and Superpower Adaptation give flexible hero turns once the economy engine is online.",
+  "slots": {
+    "23017": 2,
+    "33011": 1,
+    "36018": 1,
+    "36020": 2,
+    "38002": 1,
+    "38003": 1,
+    "38004": 1,
+    "38005": 3,
+    "38006": 3,
+    "38007": 2,
+    "38008": 2,
+    "38009": 3,
+    "49015": 1,
+    "01067": 1,
+    "01069": 2,
+    "01070": 2,
+    "01071": 3,
+    "01072": 2,
+    "01073": 1,
+    "01074": 3,
+    "01092": 2,
+    "04016": 1
+  },
+  "source": "generated",
+  "fallback_decklist_id": null,
+  "card_data_rev": "055b6b427854287943ffa025adf8c39b44494fbf"
+}
