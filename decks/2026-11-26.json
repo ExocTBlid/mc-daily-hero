@@ -1,0 +1,42 @@
+{
+  "date": "2026-11-26",
+  "title": "Domino Lucky Barrage",
+  "hero_code": "40037a",
+  "hero_name": "Domino",
+  "aspects": [
+    "aggression"
+  ],
+  "summary": "Aggression attacks and combat upgrades form the damage plan while Chase Them Down plus Smash the Problem handle thwarting. Helicarrier and double resources keep Domino's luck package and pistols fed so the deck stays efficient at forty cards.",
+  "slots": {
+    "18011": 1,
+    "18013": 2,
+    "25019": 2,
+    "32047": 1,
+    "40038": 1,
+    "40039": 1,
+    "40040": 2,
+    "40041": 1,
+    "40042": 2,
+    "40043": 1,
+    "40044": 1,
+    "40045": 1,
+    "40046": 2,
+    "40047": 1,
+    "40048": 1,
+    "40049": 1,
+    "01050": 1,
+    "01052": 3,
+    "01053": 3,
+    "01054": 2,
+    "01055": 2,
+    "01056": 1,
+    "01057": 2,
+    "09037": 2,
+    "01088": 1,
+    "01090": 1,
+    "01092": 1
+  },
+  "source": "generated",
+  "fallback_decklist_id": null,
+  "card_data_rev": "055b6b427854287943ffa025adf8c39b44494fbf"
+}
