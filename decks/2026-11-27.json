@@ -1,0 +1,40 @@
+{
+  "date": "2026-11-27",
+  "title": "Psylocke Protection Psi Guard",
+  "hero_code": "41001a",
+  "hero_name": "Psylocke",
+  "aspects": [
+    "protection"
+  ],
+  "summary": "This protection build thwarts with Mental Detection, Telepathic Suggestion, and Bait and Switch while Flurry of Blades, Counter-Punch, and Psi-Flail Strike deliver reliable damage. Digging Deep, aspect resources, Power of the Mind, and Helicarrier supply the economy to keep training and psi tools online. Armored Vest, Indomitable, and Preemptive Strike stabilize her through the fight.",
+  "slots": {
+    "15030": 3,
+    "40028": 2,
+    "40060": 2,
+    "41003": 1,
+    "41004": 3,
+    "41005": 3,
+    "41006": 2,
+    "41007": 2,
+    "41008": 1,
+    "41009": 1,
+    "41010": 1,
+    "41011": 1,
+    "41024": 2,
+    "41032": 2,
+    "41002a": 2,
+    "01075": 1,
+    "01077": 3,
+    "01081": 2,
+    "01082": 1,
+    "01079": 2,
+    "01092": 1,
+    "01088": 1,
+    "01089": 1,
+    "01090": 1,
+    "05014": 1
+  },
+  "source": "generated",
+  "fallback_decklist_id": null,
+  "card_data_rev": "055b6b427854287943ffa025adf8c39b44494fbf"
+}

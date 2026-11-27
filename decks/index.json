@@ -1,5 +1,15 @@
 [
   {
+    "date": "2026-11-27",
+    "title": "Psylocke Protection Psi Guard",
+    "hero_name": "Psylocke",
+    "hero_code": "41001a",
+    "aspects": [
+      "protection"
+    ],
+    "source": "generated"
+  },
+  {
     "date": "2026-11-26",
     "title": "Domino Lucky Barrage",
     "hero_name": "Domino",
