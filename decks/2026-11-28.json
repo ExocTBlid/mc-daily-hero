@@ -1,0 +1,39 @@
+{
+  "date": "2026-11-28",
+  "title": "Adamantium Justice",
+  "hero_code": "35001a",
+  "hero_name": "Wolverine",
+  "aspects": [
+    "justice"
+  ],
+  "summary": "This Wolverine list pairs Justice thwart density with the hero kit’s repeated claw attacks for a clean damage plan. Economy from flexible resources and Helicarrier keeps Lunging Strike and Berserker Barrage online while Interrogation Room and cheap events handle schemes. Regeneration and Track by Scent sustain the pressure without ballooning past forty cards.",
+  "slots": {
+    "15013": 2,
+    "35002": 1,
+    "35003": 1,
+    "35004": 1,
+    "35005": 1,
+    "35006": 1,
+    "35007": 1,
+    "35008": 2,
+    "35009": 2,
+    "35010": 2,
+    "35011": 2,
+    "35012": 2,
+    "40060": 2,
+    "51015": 2,
+    "09038": 3,
+    "01060": 3,
+    "04049": 3,
+    "01061": 2,
+    "01088": 1,
+    "01089": 1,
+    "01090": 1,
+    "01062": 2,
+    "01092": 1,
+    "01063": 2
+  },
+  "source": "generated",
+  "fallback_decklist_id": null,
+  "card_data_rev": "055b6b427854287943ffa025adf8c39b44494fbf"
+}

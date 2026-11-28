@@ -1,5 +1,15 @@
 [
   {
+    "date": "2026-11-28",
+    "title": "Adamantium Justice",
+    "hero_name": "Wolverine",
+    "hero_code": "35001a",
+    "aspects": [
+      "justice"
+    ],
+    "source": "generated"
+  },
+  {
     "date": "2026-11-27",
     "title": "Psylocke Protection Psi Guard",
     "hero_name": "Psylocke",
